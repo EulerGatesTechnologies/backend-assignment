@@ -14,16 +14,18 @@ public class BogusGenerator
         var testPlayers = new Faker<Player>()          
            .StrictMode(true)          
            .RuleFor(o => o.Username, f => f.Person.UserName)           
-           .RuleFor(o => o.AccountId, f => f.Random.Guid()).Generate(1000);
+           .RuleFor(o => o.AccountId, f => f.Random.Guid())
+           .Generate(1000);
 
 
         var testProviders = new Faker<Provider>()
            .StrictMode(true)
            .RuleFor(o => o.Name, f => f.Commerce.ProductName())
            .RuleFor(o => o.Games, f => new Faker<Game>()
-                                            .RuleFor(of => of.Name, ff => f.Commerce.ProductName())
-                                            .RuleFor(of => of.Theme, ff => ff.PickRandom(themes))
-                                                .Generate(10)).Generate(100);
+               .RuleFor(of => of.Name, ff => f.Commerce.ProductName())
+               .RuleFor(of => of.Theme, ff => ff.PickRandom(themes))
+               .Generate(10))
+           .Generate(100);
 
         _testCasinoWagerFaker = new Faker<CasinoWager>()
             .StrictMode(true)
@@ -44,10 +46,9 @@ public class BogusGenerator
             .RuleFor(o => o.CreatedDateTime, f => f.Date.Past())
             .RuleFor(o => o.NumberOfBets, f => f.Random.Int(1, 10))
             .RuleFor(o => o.CountryCode, f => f.Address.CountryCode())
-            .RuleFor(o => o.Duration, f => f.Random.Long(10000, 3600000)).RuleFor(o => o.Amount, f => f.Random.Double(10, 50000))
-            ;
+            .RuleFor(o => o.Duration, f => f.Random.Long(10000, 3600000))
+            .RuleFor(o => o.Amount, f => f.Random.Double(10, 50000));
 
-    
     }
 
     public List<CasinoWager> Generate()
