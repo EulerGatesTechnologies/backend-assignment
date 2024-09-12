@@ -24,11 +24,11 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
             // Arrange
             var httpClient = _factory.CreateClient();
 
-            const string hostAddress = $"http://localhost:5021";
+            const string hostAddress = $"http://localhost:5021/api";
             
             Guid playerId = Guid.NewGuid();
             
-            string url = $"{hostAddress}/api/player/{playerId}/wagers";
+            string url = $"{hostAddress}/player/{playerId}/wagers";
             
             // Act 
             var response = await httpClient.GetAsync(url);
@@ -45,8 +45,32 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
             var playerWagers = JsonSerializer.Deserialize<IEnumerable<CasinoWager>>(content);
 
             Assert.NotNull(playerWagers);
+
             Assert.NotEmpty(playerWagers);
-            //Assert.True(playerWagers.Where(cw.AccountId == playerId));
+
+            Assert.NotNull(playerWagers.Where(cw =>
+                string.Equals(cw.AccountId, playerId.ToString(), StringComparison.Ordinal)));
         }
+
+        // TODO: Implement the below test case with GET method urls
+        //[Theory]
+        //[InlineData("/")]
+        //[InlineData("/Index")]
+        //[InlineData("/About")]
+        //[InlineData("/Privacy")]
+        //[InlineData("/Contact")]
+        //public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
+        //{
+        //    // Arrange
+        //    var client = _factory.CreateClient();
+
+        //    // Act
+        //    var response = await client.GetAsync(url);
+
+        //    // Assert
+        //    response.EnsureSuccessStatusCode(); // Status Code 200-299
+        //    Assert.Equal("text/html; charset=utf-8",
+        //        response.Content.Headers.ContentType.ToString());
+        //}
     }
 }
