@@ -1,24 +1,24 @@
 using System.Reflection;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
+var webApplicationBuilder = WebApplication.CreateBuilder(args);
+webApplicationBuilder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckl
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddSwaggerGen(options =>
+webApplicationBuilder.Services.AddEndpointsApiExplorer();
+webApplicationBuilder.Services.AddSwaggerGen();
+webApplicationBuilder.Services.AddSwaggerGen(options =>
 {
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
-var app = builder.Build();
+var webApplication = webApplicationBuilder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (webApplication.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(opts =>
+    webApplication.UseSwagger();
+    webApplication.UseSwaggerUI(opts =>
     {
         opts.EnableTryItOutByDefault();
         opts.DocumentTitle = "OT Assessment App";
@@ -26,10 +26,13 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseHttpsRedirection();
+webApplication.UseHttpsRedirection();
 
-app.UseAuthorization();
+webApplication.UseAuthorization();
 
-app.MapControllers();
+webApplication.MapControllers();
 
-app.Run();
+webApplication.Run();
+
+// Required to access this class for Tests, otherwise, its internal access defined by default.
+public partial class Program { }
