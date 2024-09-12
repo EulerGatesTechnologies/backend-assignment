@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>944fae0d-e20e-44f1-bd60-7f508b5f6e1d</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\OT.Assessment.App\OT.Assessment.App.csproj" />
+    <ProjectReference Include="..\src\OT.Assessment.Casino.Api\OT.Assessment.Casino.Api.csproj" />
+  </ItemGroup>
+
+</Project>
