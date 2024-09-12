@@ -22,14 +22,16 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
         public async Task CanReadPlayers()
         {
             // Arrange
-            var client = _factory.CreateClient();
+            var httpClient = _factory.CreateClient();
+
+            const string hostAddress = $"http://localhost:5021";
             
             Guid playerId = Guid.NewGuid();
             
-            string url = $"/api/player/{playerId}/wagers";
+            string url = $"{hostAddress}/api/player/{playerId}/wagers";
             
             // Act 
-            var response = await client.GetAsync(url);
+            var response = await httpClient.GetAsync(url);
             
             // Assert
             Assert.NotNull(response);

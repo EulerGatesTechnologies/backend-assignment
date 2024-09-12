@@ -2,8 +2,8 @@
 
 namespace OT.Assessment.App.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class PlayerController : ControllerBase
     {
         //POST api/player/casinowager
@@ -25,15 +25,15 @@ namespace OT.Assessment.App.Controllers
         //GET api/player/{playerId}/wagers
 
         // TODO: Write Unit Test for the method below
-        //[HttpGet("{playerId}/wagers")]
-        //public IActionResult GetPlayerWagers(Guid playerId)
-        //{
-        //    // Your logic to retrieve wagers for the player with the given playerId
-        //    // For example:
-        //    // var wagers = _wagerService.GetWagersByPlayerId(playerId);
-        //    // return Ok(wagers);
-        //    return Ok(); // Placeholder response
-        //}
+        [HttpGet("{playerId}/wagers")]
+        public IActionResult GetPlayerWagers(Guid playerId)
+        {
+            // Your logic to retrieve wagers for the player with the given playerId
+            // For example:
+            // var wagers = _wagerService.GetWagersByPlayerId(playerId);
+            // return Ok(wagers);
+            return Ok(); // Placeholder response
+        }
 
         //GET api/player/topSpenders?count=10
 
