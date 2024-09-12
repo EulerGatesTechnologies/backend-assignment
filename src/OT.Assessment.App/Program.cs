@@ -33,3 +33,6 @@ webApplication.UseAuthorization();
 webApplication.MapControllers();
 
 webApplication.Run();
+
+// Required to access this class for Tests, otherwise, its internal access defined by default.
+public partial class Program { }
