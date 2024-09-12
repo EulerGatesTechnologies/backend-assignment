@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using OT.Assessment.App.Controllers;
 using OT.Assessment.Tester.Infrastructure;
@@ -20,13 +21,12 @@ namespace OT.Assessment.UnitTests.OT.Assessment.App.Controllers
             var playerId = Guid.NewGuid();
 
             // Act
-            var result = _playerController.GetPlayerWagers(playerId);
+            var expectedOkResult = _playerController.GetPlayerWagers(playerId);
 
             // Assert
-            var okResult = Assert.IsType<OkObjectResult>(result);
-            var wagers = Assert.IsAssignableFrom<IEnumerable<CasinoWager>>(okResult.Value);
+            var wagers = Assert.IsAssignableFrom<Ok<IEnumerable<CasinoWager>>>(expectedOkResult);
             
-            Assert.NotEmpty(wagers);
+            Assert.NotNull(wagers.Value);
         }
     }
 }
