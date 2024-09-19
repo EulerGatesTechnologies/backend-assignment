@@ -1,52 +1,63 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using OT.Assessment.App.Data;
+using OT.Assessment.App.Models;
 using OT.Assessment.Tester.Infrastructure;
 
 namespace OT.Assessment.App.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlayerController : ControllerBase
+    public class PlayerController(IRepository repository) : ControllerBase
     {
+        ///<summary>
+        /// Receives player casino wager events to publish to the local RabbitMQ queue.
+        /// </summary>
+        /// <param name="casinoWager"></param>
+
         //POST api/player/casinowager
 
-        //[HttpPost("casinowager")]
-        //public IActionResult PostCasinoWager([FromBody] CasinoWager casinoWager)
-        //{
-        //    if (casinoWager == null)
-        //    {
-        //        return BadRequest("CasinoWager is null.");
-        //    }
-        //     Your logic to handle the posted casino wager
-        //     For example:
-        //     _wagerService.AddCasinoWager(casinoWager);
-        //     return CreatedAtAction(nameof(GetPlayerWagers), new { playerId = casinoWager.PlayerId }, casinoWager);
-        //    return Ok(); // Placeholder response
-        //}
-
-        //GET api/player/{playerId}/wagers
-
-        // TODO: Write Unit Test for the method below
-        [HttpGet("{playerId}/wagers")]
-        public IResult GetPlayerWagers(Guid playerId)
+        [HttpPost("casinowager")]
+        public async Task<OkResult> PostCasinoWager([FromBody] CasinoWager casinoWager)
         {
-            IEnumerable<CasinoWager> wagers = new List<CasinoWager>{new()};
+            // TODO: Store, & return success
+
+            return Ok(); // Placeholder response
+        }
+
+        /// <summary>
+        /// Returns a paginated list of the latest casino wagers for a specific player.
+        /// </summary>
+        /// <param name="playerId"></param>
+        /// <returns></returns>
+        
+        //GET api/player/{playerId}/wagers
+        [HttpGet("{playerId}/casino")]
+        public async Task<IResult> GetPlayerWagersAsync(Guid playerId)
+        {
+            var wagers = await repository.GetPlayerCasinoWagersAsync(playerId);
             
             // Your logic to retrieve wagers for the player with the given playerId
             // For example:
             // var wagers = _wagerService.GetWagersByPlayerId(playerId);
             // return Ok(wagers);
-            return TypedResults.Ok(wagers); // Placeholder response
+            return TypedResults.Ok(new PaginatedItems<PlayerCasinoWager>(pageIndex: 0, pageSize: 0, count: 0 , data: wagers)); // Placeholder response
         }
 
+        /// <summary>
+        /// Returns the top players based on their total spending.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         //GET api/player/topSpenders?count=10
-
-        //public IActionResult GetTopSpenders([FromQuery] int count = 10)
-        //{
-        //    // Your logic to retrieve the top spenders
-        //    // For example:
-        //    // var topSpenders = _playerService.GetTopSpenders(count);
-        //    // return Ok(topSpenders);
-        //    return Ok(); // Placeholder response
-        //}
+        [HttpGet("topSpenders")]
+        public async Task<IResult> GetTopSpendersAsync([FromQuery] int count = 10)
+        {
+            // Your logic to retrieve the top spenders
+            // For example:
+            // var topSpenders = _playerService.GetTopSpenders(count);
+            // return Ok(topSpenders);
+            return TypedResults.Ok(new List<PlayerAccount>()); // Placeholder response
+        }
     }
 }

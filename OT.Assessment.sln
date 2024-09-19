@@ -25,9 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.IntegrationTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.UnitTests", "test\OT.Assessment.UnitTests\OT.Assessment.UnitTests.csproj", "{1F850B72-AEE5-42C9-A134-955B175ED8D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Casino.Api", "src\OT.Assessment.Casino.Api\OT.Assessment.Casino.Api.csproj", "{D169263F-21A1-46D9-8215-2005DF673643}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Assessment.AppHost", "OT.Assessment.AppHost\OT.Assessment.AppHost.csproj", "{C5B0BF5C-DDC1-4F58-AE2F-AC100B4A4A83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.AppHost", "OT.Assessment.AppHost\OT.Assessment.AppHost.csproj", "{C5B0BF5C-DDC1-4F58-AE2F-AC100B4A4A83}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.ServiceDefaults", "OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj", "{5C1806D2-9F48-4639-9005-3799E9C69693}"
 EndProject
@@ -57,10 +55,6 @@ Global
 		{1F850B72-AEE5-42C9-A134-955B175ED8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F850B72-AEE5-42C9-A134-955B175ED8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F850B72-AEE5-42C9-A134-955B175ED8D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D169263F-21A1-46D9-8215-2005DF673643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D169263F-21A1-46D9-8215-2005DF673643}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D169263F-21A1-46D9-8215-2005DF673643}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D169263F-21A1-46D9-8215-2005DF673643}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5B0BF5C-DDC1-4F58-AE2F-AC100B4A4A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5B0BF5C-DDC1-4F58-AE2F-AC100B4A4A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5B0BF5C-DDC1-4F58-AE2F-AC100B4A4A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -79,7 +73,6 @@ Global
 		{BF0CDF90-B607-4710-9F26-67E23498C865} = {B4795B8C-CE52-404F-AA64-6D8AA8734A96}
 		{04A5FBD3-87B8-4FAC-B4FD-EEEFE346E9C2} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
 		{1F850B72-AEE5-42C9-A134-955B175ED8D6} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
-		{D169263F-21A1-46D9-8215-2005DF673643} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C56C9633-4971-45FE-9CB3-E2F07E649A77}

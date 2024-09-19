@@ -11,11 +11,12 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.0" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="8.2.0" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\src\OT.Assessment.App\OT.Assessment.App.csproj" />
-    <ProjectReference Include="..\src\OT.Assessment.Casino.Api\OT.Assessment.Casino.Api.csproj" />
   </ItemGroup>
 
 </Project>
