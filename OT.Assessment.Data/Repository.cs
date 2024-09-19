@@ -1,4 +1,6 @@
-namespace OT.Assessment.App.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace OT.Assessment.Data;
 
 public class Repository : IRepository
 {

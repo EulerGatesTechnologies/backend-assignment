@@ -1,18 +1,11 @@
-using System;
+using OT.Assessment.Data;
 
 namespace OT.Assessment.App.Services;
 
-public class CasinoWagerService
+public class CasinoWagerService(IRepository repository)
 {
-    private readonly IRepository _repository;
-
-    public CasinoWagerService(IRepository repository)
-    {
-        _repository = repository;
-    }
-
     public async Task AddCasinoWagerAsync(PlayerCasinoWager wager)
     {
-        await _repository.AddPlayerCasinoWagerAsync(wager);
+        await repository.AddPlayerCasinoWagerAsync(wager);
     }
 }

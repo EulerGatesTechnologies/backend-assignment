@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using OT.Assessment.App.Data;
+
 using OT.Assessment.App.Models;
-using OT.Assessment.Tester.Infrastructure;
+using OT.Assessment.Data;
 
 namespace OT.Assessment.App.Controllers
 {
@@ -10,6 +10,7 @@ namespace OT.Assessment.App.Controllers
     [ApiController]
     public class PlayerController(IRepository repository) : ControllerBase
     {
+       
         ///<summary>
         /// Receives player casino wager events to publish to the local RabbitMQ queue.
         /// </summary>
@@ -18,7 +19,7 @@ namespace OT.Assessment.App.Controllers
         //POST api/player/casinowager
 
         [HttpPost("casinowager")]
-        public async Task<OkResult> PostCasinoWager([FromBody] CasinoWager casinoWager)
+        public async Task<OkResult> PostCasinoWager([FromBody] PlayerCasinoWager casinoWager)
         {
             // TODO: Store, & return success
 

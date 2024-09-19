@@ -1,4 +1,4 @@
-namespace OT.Assessment.App.Data;
+namespace OT.Assessment.Data;
 
 public class PlayerCasinoWager
 {

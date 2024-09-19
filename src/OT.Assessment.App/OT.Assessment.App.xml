@@ -4,5 +4,25 @@
         <name>OT.Assessment.App</name>
     </assembly>
     <members>
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.PostCasinoWager(OT.Assessment.Data.PlayerCasinoWager)">
+            <summary>
+             Receives player casino wager events to publish to the local RabbitMQ queue.
+             </summary>
+             <param name="casinoWager"></param>
+        </member>
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetPlayerWagersAsync(System.Guid)">
+            <summary>
+            Returns a paginated list of the latest casino wagers for a specific player.
+            </summary>
+            <param name="playerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetTopSpendersAsync(System.Int32)">
+            <summary>
+            Returns the top players based on their total spending.
+            </summary>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
