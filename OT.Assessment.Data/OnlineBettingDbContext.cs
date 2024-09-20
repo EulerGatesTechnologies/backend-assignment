@@ -9,6 +9,11 @@ public class OnlineBettingDbContext : DbContext
     {
     }
 
+    public OnlineBettingDbContext()
+    {
+        throw new NotImplementedException();
+    }
+
     public DbSet<PlayerAccount> PlayerAccounts { get; set; }
     public DbSet<PlayerCasinoWager> PlayerCasinoWagers { get; set; }
 }

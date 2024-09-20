@@ -8,8 +8,17 @@ namespace OT.Assessment.App.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlayerController(IRepository repository) : ControllerBase
+    public class PlayerController : ControllerBase
     {
+        private readonly IRepository _repository;
+        private readonly OnlineBettingDbContext _onlineBettingDbContext;
+
+        // TODO: Used for QUICK Tests, otherwise to use DIs.
+        public PlayerController()
+        {
+            _onlineBettingDbContext = new OnlineBettingDbContext();
+            _repository = new Repository(_onlineBettingDbContext);
+        }
        
         ///<summary>
         /// Receives player casino wager events to publish to the local RabbitMQ queue.
@@ -19,11 +28,11 @@ namespace OT.Assessment.App.Controllers
         //POST api/player/casinowager
 
         [HttpPost("casinowager")]
-        public async Task<OkResult> PostCasinoWager([FromBody] PlayerCasinoWager casinoWager)
+        public async Task<IResult> PostCasinoWagerAsync([FromBody] PlayerCasinoWager casinoWager)
         {
             // TODO: Store, & return success
 
-            return Ok(); // Placeholder response
+            return TypedResults.Ok(); // Placeholder response
         }
 
         /// <summary>
@@ -36,7 +45,8 @@ namespace OT.Assessment.App.Controllers
         [HttpGet("{playerId}/casino")]
         public async Task<IResult> GetPlayerWagersAsync(Guid playerId)
         {
-            var wagers = await repository.GetPlayerCasinoWagersAsync(playerId);
+
+            var wagers = await _repository.GetPlayerCasinoWagersAsync(playerId);
             
             // Your logic to retrieve wagers for the player with the given playerId
             // For example:

@@ -4,7 +4,7 @@
         <name>OT.Assessment.App</name>
     </assembly>
     <members>
-        <member name="M:OT.Assessment.App.Controllers.PlayerController.PostCasinoWager(OT.Assessment.Data.PlayerCasinoWager)">
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.PostCasinoWagerAsync(OT.Assessment.Data.PlayerCasinoWager)">
             <summary>
              Receives player casino wager events to publish to the local RabbitMQ queue.
              </summary>

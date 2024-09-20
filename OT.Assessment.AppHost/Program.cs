@@ -1,7 +1,5 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Service registration
-
 // Register a RabbitMQ Server
 var messagingRabbitMq = builder.AddRabbitMQ("messaging");
 

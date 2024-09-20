@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OT.Assessment.App\OT.Assessment.App.csproj" />
-    <ProjectReference Include="..\OT.Assessment.Tester\OT.Assessment.Tester.csproj" />
   </ItemGroup>
 
   <ItemGroup>
