@@ -2,7 +2,7 @@ using System.Reflection;
 
 var webApplicationBuilder = WebApplication.CreateBuilder(args);
 
-webApplicationBuilder.AddServiceDefaults();
+
 webApplicationBuilder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckl
@@ -16,7 +16,7 @@ webApplicationBuilder.Services.AddSwaggerGen(options =>
 
 var webApplication = webApplicationBuilder.Build();
 
-webApplication.MapDefaultEndpoints();
+
 
 // Configure the HTTP request pipeline.
 if (webApplication.Environment.IsDevelopment())

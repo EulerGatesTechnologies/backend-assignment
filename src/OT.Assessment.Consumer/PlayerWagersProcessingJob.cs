@@ -1,5 +1,6 @@
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using OT.Assessment.Core;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -10,10 +11,10 @@ namespace OT.Assessment.Consumer
         private readonly ILogger<PlayerWagersProcessingJob> _logger;
         private readonly IConfiguration _config;
         private readonly IServiceProvider _serviceProvider;
-        private IConnection? _messageConnection;
-        private IModel? _messageChannel;
+        private IConnection _messageConnection;
+        private IModel _messageChannel;
 
-        public PlayerWagersProcessingJob(ILogger<PlayerWagersProcessingJob> logger, IConfiguration config, IServiceProvider serviceProvider, IConnection? messageConnection)
+        public PlayerWagersProcessingJob(ILogger<PlayerWagersProcessingJob> logger, IConfiguration config, IServiceProvider serviceProvider, IConnection messageConnection)
         {
             _logger = logger;
             _config = config;
@@ -22,12 +23,10 @@ namespace OT.Assessment.Consumer
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            string queueName = "playerWagersEvents";
-
             _messageConnection = _serviceProvider.GetService<IConnection>();
 
             _messageChannel = _messageConnection!.CreateModel();
-            _messageChannel.QueueDeclare(queue: queueName,
+            _messageChannel.QueueDeclare(queue: CoreConsts.QueueName,
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
@@ -36,7 +35,7 @@ namespace OT.Assessment.Consumer
             var consumer = new EventingBasicConsumer(_messageChannel);
             consumer.Received += ProcessMessageAsync;
 
-            _messageChannel.BasicConsume(queue: queueName,
+            _messageChannel.BasicConsume(queue: CoreConsts.QueueName,
                 autoAck: true,
                 consumer: consumer);
 

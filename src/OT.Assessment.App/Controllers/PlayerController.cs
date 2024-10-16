@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
 using OT.Assessment.App.Models;
+using OT.Assessment.Core;
 using OT.Assessment.Data;
-using OT.Assessment.Tester.Infrastructure;
+
 using RabbitMQ.Client;
-using CasinoWager = OT.Assessment.App.Infrastructure.CasinoWager;
 
 namespace OT.Assessment.App.Controllers
 {
@@ -18,12 +20,6 @@ namespace OT.Assessment.App.Controllers
     {
         private readonly IRepository _repository;
         private readonly OnlineBettingDbContext _onlineBettingDbContext;
-
-        // TODO: Used for QUICK Tests, otherwise to use DIs.
-        public PlayerController()
-        {
-           
-        }
 
         /// <summary>
         ///  Receives player casino wager events to publish to the local RabbitMQ queue.
@@ -43,19 +39,21 @@ namespace OT.Assessment.App.Controllers
            
             using IModel channel = connection.CreateModel();
 
-            channel.QueueDeclare(queue: "playerWagersEvents",
+            channel.QueueDeclare(queue: CoreConsts.QueueName,
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
                 arguments: null);
 
-            var message = "Getting all items in the catalog.";
+            var message = JsonSerializer.Serialize(casinoWager);
+
             var body = Encoding.UTF8.GetBytes(message);
 
             channel.BasicPublish(exchange: string.Empty,
-                routingKey: "playerWagersEvents",
+                routingKey: CoreConsts.QueueName,
                 basicProperties: null,
                 body: body);
+
             return TypedResults.Ok(); // Placeholder response
         }
 

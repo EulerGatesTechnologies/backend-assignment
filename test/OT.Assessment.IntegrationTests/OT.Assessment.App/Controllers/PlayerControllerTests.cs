@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Numerics;
 using System.Text.Json;
-using OT.Assessment.Tester.Infrastructure;
+
 using Xunit;
+using OT.Assessment.App.Infrastructure;
 
 namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
 {

@@ -1,24 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using OT.Assessment.Consumer;
 
 
-var host = Host.CreateDefaultBuilder(args)
-    .ConfigureAppConfiguration(config =>
-    {
-        config.SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json")
-            .Build();
-    })
-    .ConfigureServices((context, services) =>
-    {
-        //configure services
-        services.AddHostedService<PlayerWagersProcessingJob>();
 
-    })
-    .Build();
+var builder = Host.CreateApplicationBuilder(args);
+
+builder.AddServiceDefaults();
+
+builder.AddRabbitMQClient("messaging");
+
+
+builder.Services.AddHostedService<PlayerWagersProcessingJob>();
+
+var host = builder.Build();
 
 var logger = host.Services.GetRequiredService<ILogger<Program>>();
+
 logger.LogInformation("Application started {time:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
 
 await host.RunAsync();

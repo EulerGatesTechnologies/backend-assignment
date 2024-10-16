@@ -9,19 +9,13 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+		<PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
 	</ItemGroup>
 
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\OT.Assessment.Data\OT.Assessment.Data.csproj" />
-	  <ProjectReference Include="..\..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
-	  <ProjectReference Include="..\OT.Assessment.App\OT.Assessment.App.csproj" />
+	  <ProjectReference Include="..\OT.Assessment.Core\OT.Assessment.Core.csproj" />
+	  <ProjectReference Include="..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
 	</ItemGroup>
 
 

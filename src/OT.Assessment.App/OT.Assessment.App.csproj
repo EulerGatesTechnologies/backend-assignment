@@ -19,8 +19,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\OT.Assessment.Data\OT.Assessment.Data.csproj" />
-	  <ProjectReference Include="..\..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
-	  <ProjectReference Include="..\..\test\OT.Assessment.Tester\OT.Assessment.Tester.csproj" />
+	  <ProjectReference Include="..\OT.Assessment.Core\OT.Assessment.Core.csproj" />
 	</ItemGroup>
 
 </Project>
