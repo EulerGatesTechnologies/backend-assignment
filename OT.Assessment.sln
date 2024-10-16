@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.AppHost", "OT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.ServiceDefaults", "OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj", "{5C1806D2-9F48-4639-9005-3799E9C69693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Assessment.Data", "OT.Assessment.Data\OT.Assessment.Data.csproj", "{E2DA9999-0C98-45B9-9D75-7D27CC4B44CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Data", "OT.Assessment.Data\OT.Assessment.Data.csproj", "{E2DA9999-0C98-45B9-9D75-7D27CC4B44CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +79,7 @@ Global
 		{BF0CDF90-B607-4710-9F26-67E23498C865} = {B4795B8C-CE52-404F-AA64-6D8AA8734A96}
 		{04A5FBD3-87B8-4FAC-B4FD-EEEFE346E9C2} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
 		{1F850B72-AEE5-42C9-A134-955B175ED8D6} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
+		{E2DA9999-0C98-45B9-9D75-7D27CC4B44CC} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C56C9633-4971-45FE-9CB3-E2F07E649A77}
