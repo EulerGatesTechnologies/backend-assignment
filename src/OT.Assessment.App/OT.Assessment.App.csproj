@@ -20,6 +20,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\OT.Assessment.Data\OT.Assessment.Data.csproj" />
 	  <ProjectReference Include="..\OT.Assessment.Core\OT.Assessment.Core.csproj" />
+	  <ProjectReference Include="..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
 	</ItemGroup>
 
 </Project>

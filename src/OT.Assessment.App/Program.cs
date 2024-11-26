@@ -2,6 +2,8 @@ using System.Reflection;
 
 var webApplicationBuilder = WebApplication.CreateBuilder(args);
 
+webApplicationBuilder.AddServiceDefaults();
+
 
 webApplicationBuilder.Services.AddControllers();
 
@@ -15,8 +17,6 @@ webApplicationBuilder.Services.AddSwaggerGen(options =>
 });
 
 var webApplication = webApplicationBuilder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (webApplication.Environment.IsDevelopment())

@@ -21,7 +21,7 @@
             <param name="playerId"></param>
             <returns></returns>
         </member>
-        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetTopSpendersAsync(System.Int32)">
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetTopSpendersAsync(OT.Assessment.App.Model.PaginationRequest,OT.Assessment.App.Model.PlayerServices,System.Int32)">
             <summary>
             Returns the top players based on their total spending.
             </summary>

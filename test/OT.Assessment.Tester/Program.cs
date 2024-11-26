@@ -25,7 +25,7 @@ var scenario = Scenario.Create("hello_world_scenario", async context =>
     );
 
 NBomberRunner
-    .RegisterScenarios(scenario)
+    .RegisterScenarios( scenario )
     .WithWorkerPlugins(new HttpMetricsPlugin(new[] { HttpVersion.Version1 }))
     .WithoutReports()
     .Run();

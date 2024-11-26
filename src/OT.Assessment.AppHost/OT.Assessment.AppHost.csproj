@@ -14,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\OT.Assessment.Data\OT.Assessment.Data.csproj" />
+    <ProjectReference Include="..\..\test\OT.Assessment.Tester\OT.Assessment.Tester.csproj" />
+    <ProjectReference Include="..\OT.Assessment.App\OT.Assessment.App.csproj" />
     <ProjectReference Include="..\OT.Assessment.Consumer\OT.Assessment.Consumer.csproj" />
   </ItemGroup>
 

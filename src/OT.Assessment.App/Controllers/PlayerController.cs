@@ -96,13 +96,25 @@ namespace OT.Assessment.App.Controllers
         /// <returns></returns>
         //GET api/player/topSpenders?count=10
         [HttpGet("topSpenders")]
-        public async Task<IResult> GetTopSpendersAsync([FromQuery] int count = 10)
+        public async Task<Ok<PaginatedItems<PlayerAccount>>> GetTopSpendersAsync([FromQuery]
+            [AsParameters] PaginationRequest paginationRequest,
+            [AsParameters] PlayerServices services, int count = 10)
         {
             // Your logic to retrieve the top spenders
             // For example:
-            // var topSpenders = _playerService.GetTopSpenders(count);
-            // return Ok(topSpenders);
-            return TypedResults.Ok(new List<PlayerAccount>()); // Placeholder response
+            var topSpenders = services.DbContext.PlayerAccounts.ToListAsync<PlayerAccount>;
+
+            int pageSize = paginationRequest.PageSize;
+            int pageIndex = paginationRequest.PageIndex;
+
+            // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
+            var wagersOnPage = await services.DbContext.PlayerAccounts
+                .Skip(pageSize * pageIndex)
+                .Take(pageSize)
+                .AsNoTracking()
+                .ToListAsync();
+
+            return TypedResults.Ok(new PaginatedItems<PlayerAccount>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0, data: wagersOnPage)); // Placeholder response
         }
     }
 }

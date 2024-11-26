@@ -1,0 +1,9 @@
+﻿CREATE TABLE PlayerCasinoWager
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [AccountId] NVARCHAR(50) NOT NULL, 
+    [Game] NVARCHAR(50) NOT NULL, 
+    [Provider] NVARCHAR(50) NOT NULL, 
+    [Amount] MONEY NOT NULL, 
+    [WagerId] NVARCHAR(50) NOT NULL
+)

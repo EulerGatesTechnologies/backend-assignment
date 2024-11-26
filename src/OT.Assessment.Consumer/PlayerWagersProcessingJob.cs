@@ -49,10 +49,11 @@ namespace OT.Assessment.Consumer
             _messageChannel?.Dispose();
         }
 
-        private void ProcessMessageAsync(object? sender, BasicDeliverEventArgs args)
+        private void ProcessMessageAsync(object sender, BasicDeliverEventArgs args)
         {
 
             string messagetext = Encoding.UTF8.GetString(args.Body.ToArray());
+
             _logger.LogInformation("All wagers retrieved from the player at {now}. Message Text: {text}", DateTime.Now, messagetext);
 
             var message = args.Body;
