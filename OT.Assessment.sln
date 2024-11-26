@@ -7,22 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Consumer", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.App", "src\OT.Assessment.App\OT.Assessment.App.csproj", "{9C47B574-9401-48DD-AB40-48F0C9BA699A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Tester", "test\OT.Assessment.Tester\OT.Assessment.Tester.csproj", "{BF0CDF90-B607-4710-9F26-67E23498C865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Tester", "tests\OT.Assessment.Tester\OT.Assessment.Tester.csproj", "{BF0CDF90-B607-4710-9F26-67E23498C865}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7EFE3E75-8316-420D-AFA3-ECE90ECF22BB}"
 	ProjectSection(SolutionItems) = preProject
+		src\OT.Assessment.Dapper\DatabaseGenerate.sql = src\OT.Assessment.Dapper\DatabaseGenerate.sql
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6FA7DAF4-446B-4610-9EDF-6E418255B176}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tester", "tester", "{B4795B8C-CE52-404F-AA64-6D8AA8734A96}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A4BCA416-6D8C-4432-AE49-D9E1663CE84B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.IntegrationTests", "test\OT.Assessment.IntegrationTests\OT.Assessment.IntegrationTests.csproj", "{04A5FBD3-87B8-4FAC-B4FD-EEEFE346E9C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.IntegrationTests", "tests\OT.Assessment.IntegrationTests\OT.Assessment.IntegrationTests.csproj", "{04A5FBD3-87B8-4FAC-B4FD-EEEFE346E9C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.UnitTests", "test\OT.Assessment.UnitTests\OT.Assessment.UnitTests.csproj", "{1F850B72-AEE5-42C9-A134-955B175ED8D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.UnitTests", "tests\OT.Assessment.UnitTests\OT.Assessment.UnitTests.csproj", "{1F850B72-AEE5-42C9-A134-955B175ED8D6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.AppHost", "src\OT.Assessment.AppHost\OT.Assessment.AppHost.csproj", "{55BDDD23-31BB-4F4A-A4B3-F4FE46752E3E}"
 EndProject
@@ -32,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Core", "src\O
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "OT.Assessment.Dapper", "src\OT.Assessment.Dapper\OT.Assessment.Dapper.sqlproj", "{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Assessment.Common", "OT.Assessment.Common\OT.Assessment.Common.csproj", "{EF03DB16-7FDC-47E5-AC6B-7241BBA47B3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Common", "src\OT.Assessment.Common\OT.Assessment.Common.csproj", "{555016C9-37BA-4025-94F8-113897F2CC87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Casino.Api", "src\OT.Assessment.Casino.Api\OT.Assessment.Casino.Api.csproj", "{32018DBF-5485-4E2F-9308-4C839A30A998}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,10 +79,14 @@ Global
 		{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{EF03DB16-7FDC-47E5-AC6B-7241BBA47B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF03DB16-7FDC-47E5-AC6B-7241BBA47B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF03DB16-7FDC-47E5-AC6B-7241BBA47B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF03DB16-7FDC-47E5-AC6B-7241BBA47B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555016C9-37BA-4025-94F8-113897F2CC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555016C9-37BA-4025-94F8-113897F2CC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555016C9-37BA-4025-94F8-113897F2CC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555016C9-37BA-4025-94F8-113897F2CC87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32018DBF-5485-4E2F-9308-4C839A30A998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32018DBF-5485-4E2F-9308-4C839A30A998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32018DBF-5485-4E2F-9308-4C839A30A998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32018DBF-5485-4E2F-9308-4C839A30A998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,13 +94,15 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FEB40B93-D586-4600-AAC9-DD0960D0083D} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 		{9C47B574-9401-48DD-AB40-48F0C9BA699A} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
-		{BF0CDF90-B607-4710-9F26-67E23498C865} = {B4795B8C-CE52-404F-AA64-6D8AA8734A96}
+		{BF0CDF90-B607-4710-9F26-67E23498C865} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
 		{04A5FBD3-87B8-4FAC-B4FD-EEEFE346E9C2} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
 		{1F850B72-AEE5-42C9-A134-955B175ED8D6} = {A4BCA416-6D8C-4432-AE49-D9E1663CE84B}
 		{55BDDD23-31BB-4F4A-A4B3-F4FE46752E3E} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 		{3F2D5F2E-C430-49C0-AB50-4F244D798E87} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 		{12FFD8AF-7D12-460E-8CF8-70F10623DCDC} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 		{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
+		{555016C9-37BA-4025-94F8-113897F2CC87} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
+		{32018DBF-5485-4E2F-9308-4C839A30A998} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C56C9633-4971-45FE-9CB3-E2F07E649A77}

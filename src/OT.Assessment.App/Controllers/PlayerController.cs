@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
 using OT.Assessment.App.Models;
 using OT.Assessment.Core;
-using OT.Assessment.Data;
 
 using RabbitMQ.Client;
 
@@ -18,8 +15,11 @@ namespace OT.Assessment.App.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        private readonly IRepository _repository;
-        private readonly OnlineBettingDbContext _onlineBettingDbContext;
+        private readonly ILogger<PlayerController> _logger;
+        public PlayerController(ILogger<PlayerController> logger)
+        {
+            _logger = logger;
+        }
 
         /// <summary>
         ///  Receives player casino wager events to publish to the local RabbitMQ queue.

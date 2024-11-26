@@ -65,9 +65,6 @@
     <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DatabaseGenerate.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <Build Include="dbo\Tables\PlayerAccount.sql" />
     <Build Include="dbo\Tables\PlayerCasinoWager.sql" />
   </ItemGroup>
