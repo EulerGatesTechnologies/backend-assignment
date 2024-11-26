@@ -1,13 +1,10 @@
 ﻿namespace OT.Assessment.Core
-{    public static class CoreConsts
+{    public class CoreConsts
 
     {
-        public static string QueueName
-        {
-            get
-            {
-                return "playerWagersEvents";
-            }
-        }
+        public const string QueueName = "PlayerWagersEvents";
+
+        public const string ConnectionStringName = "OT_Assessment_DB";   
+
     }
 }

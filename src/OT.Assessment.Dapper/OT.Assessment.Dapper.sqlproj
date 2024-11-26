@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\PlayerAccount.sql" />
-    <Build Include="dbo\Tables\DatabaseGenerate.sql" />
     <Build Include="dbo\Tables\PlayerCasinoWager.sql" />
   </ItemGroup>
 </Project>
