@@ -2,10 +2,10 @@
 
 
 var bg = new BogusGenerator();
-var total = bg.Generate();
+List<CasinoWager> fakePlayerCasinoWagers = bg.Generate();
 var scenario = Scenario.Create("hello_world_scenario", async context =>
     {
-        var body = JsonSerializer.Serialize(total[(int)context.InvocationNumber]);
+        var body = JsonSerializer.Serialize(fakePlayerCasinoWagers[(int)context.InvocationNumber]);
         using var httpClient = new HttpClient();
         var request =
            Http.CreateRequest("POST", "https://localhost:7120/api/Player/CasinoWager")

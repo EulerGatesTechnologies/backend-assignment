@@ -22,7 +22,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <GenerateCreateScript>True</GenerateCreateScript>
+    <GenerateCreateScript>False</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -67,5 +67,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\PlayerAccount.sql" />
     <Build Include="dbo\Tables\PlayerCasinoWager.sql" />
+    <Build Include="dbo\sp_GetCasinoWagersForPlayer.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetWagersByPlayerId.sql" />
   </ItemGroup>
 </Project>

@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Common", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Casino.Api", "src\OT.Assessment.Casino.Api\OT.Assessment.Casino.Api.csproj", "{32018DBF-5485-4E2F-9308-4C839A30A998}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Assessment.EventBusRabbitMq", "src\OT.Assessment.EventBusRabbitMq\OT.Assessment.EventBusRabbitMq.csproj", "{4D628F16-E10B-43F6-9637-AEC6CA20E3E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{32018DBF-5485-4E2F-9308-4C839A30A998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32018DBF-5485-4E2F-9308-4C839A30A998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32018DBF-5485-4E2F-9308-4C839A30A998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D628F16-E10B-43F6-9637-AEC6CA20E3E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D628F16-E10B-43F6-9637-AEC6CA20E3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D628F16-E10B-43F6-9637-AEC6CA20E3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D628F16-E10B-43F6-9637-AEC6CA20E3E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 		{555016C9-37BA-4025-94F8-113897F2CC87} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 		{32018DBF-5485-4E2F-9308-4C839A30A998} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
+		{4D628F16-E10B-43F6-9637-AEC6CA20E3E0} = {6FA7DAF4-446B-4610-9EDF-6E418255B176}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C56C9633-4971-45FE-9CB3-E2F07E649A77}

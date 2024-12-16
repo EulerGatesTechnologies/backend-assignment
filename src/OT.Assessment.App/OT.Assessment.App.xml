@@ -12,7 +12,7 @@
             <param name="services"></param>
             <param name="connection"></param>
         </member>
-        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetWagersByPlayerIdAsync(OT.Assessment.App.Model.PaginationRequest,OT.Assessment.App.Model.PlayerServices,System.Guid)">
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetWagersByPlayerIdAsync(OT.Assessment.App.Model.PaginationRequest, OT.Assessment.App.Model.PlayerServices,System.Guid)">
             <summary>
             Returns a paginated list of the latest casino wagers for a specific player.
             </summary>

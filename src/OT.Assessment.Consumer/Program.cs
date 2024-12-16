@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using OT.Assessment.Consumer;
+using OT.Assessment.Consumer.Extensions;
 
 
 
@@ -11,8 +12,15 @@ builder.AddServiceDefaults();
 
 builder.AddRabbitMQClient("messaging");
 
+builder.AddRabbitMqEventBus("EventBus");
 
 builder.Services.AddHostedService<PlayerWagersProcessingJob>();
+
+builder.Services.AddSingleton<IEventBus, RabbitMQEventBus>();
+// Start consuming messages as soon as the application starts
+builder.Services.AddSingleton<IHostedService>(sp => (RabbitMQEventBus)sp.GetRequiredService<IEventBus>());
+
+return new EventBusBuilder(builder.Services);
 
 var host = builder.Build();
 

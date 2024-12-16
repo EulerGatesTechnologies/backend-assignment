@@ -2,9 +2,11 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using OT.Assessment.App.CasinoWagers.Dto;
 using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
 using OT.Assessment.App.Models;
+using OT.Assessment.App.Players.Dtos;
 using OT.Assessment.Core;
 
 using RabbitMQ.Client;
@@ -15,22 +17,22 @@ namespace OT.Assessment.App.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        private readonly ILogger<PlayerController> _logger;
-        public PlayerController(ILogger<PlayerController> logger)
+        private readonly PlayerServices _playerServices;        
+        public PlayerController(PlayerServices playerServices)
         {
-            _logger = logger;
+            _playerServices = playerServices;
         }
 
         /// <summary>
         ///  Receives player casino wager events to publish to the local RabbitMQ queue.
         ///  </summary>
-        /// <param name="casinoWager"></param>
-        /// <param name="services"></param>
-        /// <param name="connection"></param>
+        /// <param name="casinoWager"></param>      
+
 
         //POST api/player/casinowager
         [HttpPost("casinowager")]
-        public async Task<IResult> PostPlayerWagerAsync([FromBody] CasinoWager casinoWager)
+        public async Task<IResult> CreatePlayerCasinoWagerAsync([FromBody] CasinoWager casinoWager,
+            [AsParameters] PlayerServices services)
         {
             // Send a message to the queue in RabbitMQ
             var factory = new ConnectionFactory { HostName = "localhost" };
@@ -45,6 +47,7 @@ namespace OT.Assessment.App.Controllers
                 autoDelete: false,
                 arguments: null);
 
+            // TODO-SK: Deserialize?
             var message = JsonSerializer.Serialize(casinoWager);
 
             var body = Encoding.UTF8.GetBytes(message);
@@ -65,16 +68,18 @@ namespace OT.Assessment.App.Controllers
         /// <param name="playerId"></param>
         /// <returns></returns>
 
-        //GET api/player/{playerId}/wagers
-        [HttpGet("{playerId}/wagers")]
-        public async Task<Ok<PaginatedItems<PlayerCasinoWager>>> GetWagersByPlayerIdAsync([FromQuery]
+        //GET api/player/{playerId}/casino
+        [HttpGet("{playerId}/casino")]
+        public async Task<Ok<PaginatedItems<CasinoWagerDto>>> GetCasinoWagersByPlayerIdAsync([FromQuery]
             [AsParameters] PaginationRequest paginationRequest,
             [AsParameters] PlayerServices services,
             Guid playerId)
         {
-            //string query = @"sp_GetWagersByPlayerIdAsync";
-            //using var connection = services.DbContext.Database.GetDbConnection();
-            //var wagers = await connection.QueryAsync<PlayerCasinoWager>(query, new { AccountId = playerId });
+            string sql = @"sp_GetCasinoWagerByPlayerId";
+
+            using var connection = services.DbContext. .GetDbConnection();
+
+            var wagers = await connection.QueryAsync<CasinoWager>(sql, new { AccountId = playerId });
             int pageSize = paginationRequest.PageSize;
             int pageIndex = paginationRequest.PageIndex;
 
@@ -86,7 +91,7 @@ namespace OT.Assessment.App.Controllers
                 .AsNoTracking()
                 .ToListAsync();
 
-            return TypedResults.Ok(new PaginatedItems<PlayerCasinoWager>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0 , data: wagersOnPage)); // Placeholder response
+            return TypedResults.Ok(new PaginatedItems<CasinoWagerDto>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0 , data: wagersOnPage)); // Placeholder response
         }
 
         /// <summary>
@@ -96,10 +101,10 @@ namespace OT.Assessment.App.Controllers
         /// <returns></returns>
         //GET api/player/topSpenders?count=10
         [HttpGet("topSpenders")]
-        public async Task<Ok<PaginatedItems<PlayerAccount>>> GetTopSpendersAsync([FromQuery]
+        public async Task<Ok<PaginatedItems<PlayerAccountDto>>> GetTopSpendersAsync([FromQuery]
             [AsParameters] PaginationRequest paginationRequest,
             [AsParameters] PlayerServices services, int count = 10)
-        {
+        { 
             // Your logic to retrieve the top spenders
             // For example:
             var topSpenders = services.DbContext.PlayerAccounts.ToListAsync<PlayerAccount>;

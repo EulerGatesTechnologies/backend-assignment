@@ -39,8 +39,7 @@ public class BogusGenerator
             .RuleFor(o => o.TransactionId, () => Guid.NewGuid().ToString())
             .RuleFor(o => o.BrandId, () => Guid.NewGuid().ToString())
             .RuleFor(o => o.Username, f => f.PickRandom(testPlayers).Username.ToString())
-            .RuleFor(o => o.AccountId,
-                (f, u) => f.PickRandom(testPlayers.First(x => x.Username == u.Username)).AccountId.ToString())
+            .RuleFor(o => o.AccountId, (f, u) => f.PickRandom(testPlayers.FirstOrDefault(x => x.Username == u.Username)).AccountId.ToString())
             .RuleFor(o => o.ExternalReferenceId, () => Guid.NewGuid().ToString())
             .RuleFor(o => o.TransactionTypeId, () => Guid.NewGuid().ToString())
             .RuleFor(o => o.CreatedDateTime, f => f.Date.Past())

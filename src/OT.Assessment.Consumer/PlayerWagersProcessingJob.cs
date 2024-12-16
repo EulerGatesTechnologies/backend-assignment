@@ -6,6 +6,9 @@ using RabbitMQ.Client.Events;
 
 namespace OT.Assessment.Consumer
 {
+    /// <summary>
+    /// This service will consume messages published to the aforementioned queue and store consumed messages in a database:
+    /// </summary>
     public class PlayerWagersProcessingJob : BackgroundService
     {
         private readonly ILogger<PlayerWagersProcessingJob> _logger;

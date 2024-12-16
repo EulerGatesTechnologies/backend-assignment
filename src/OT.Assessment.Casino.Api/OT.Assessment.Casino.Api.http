@@ -1,6 +1,0 @@
-@OT.Assessment.Casino.Api_HostAddress = http://localhost:5207
-
-GET {{OT.Assessment.Casino.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
