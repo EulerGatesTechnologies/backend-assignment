@@ -4,10 +4,9 @@ using Microsoft.Extensions.Hosting;
 using OT.Assessment.Consumer;
 using OT.Assessment.Consumer.Extensions;
 
-
-
 var builder = Host.CreateApplicationBuilder(args);
 
+// Reference below package found in ASPIRE's ServiceDefaults projects in the current workspac/solution.
 builder.AddServiceDefaults();
 
 builder.AddRabbitMQClient("messaging");

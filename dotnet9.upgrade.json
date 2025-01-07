@@ -1,0 +1,1236 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "",
+    "targetDisplayName": ".NET 9.0"
+  },
+  "analysisStartTime": "2025-01-07T13:27:55.7900904Z",
+  "analysisEndTime": "2025-01-07T13:32:35.8140037Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 9,
+      "issues": 3,
+      "incidents": 47,
+      "effort": 47
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 9,
+        "Optional": 0,
+        "Potential": 38,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 9,
+        "Project": 9,
+        "Api": 29
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+      "startingProject": true,
+      "issues": 2,
+      "storyPoints": 3,
+      "ruleInstances": [
+        {
+          "incidentId": "10e28ec4-6a85-4e0f-b446-d92ed017acc9",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.EntityFrameworkCore, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore 9.0.0",
+              "protected": "Microsoft.EntityFrameworkCore, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore 9.0.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+            "snippet": "Microsoft.EntityFrameworkCore, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore 9.0.0",
+            "protectedSnippet": "Microsoft.EntityFrameworkCore, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore 9.0.0",
+            "label": "Microsoft.EntityFrameworkCore 8.0.8"
+          }
+        },
+        {
+          "incidentId": "a4c23efc-e82a-4755-be3c-cbcecc33582d",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.EntityFrameworkCore.SqlServer, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore.SqlServer 9.0.0",
+              "protected": "Microsoft.EntityFrameworkCore.SqlServer, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore.SqlServer 9.0.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+            "snippet": "Microsoft.EntityFrameworkCore.SqlServer, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore.SqlServer 9.0.0",
+            "protectedSnippet": "Microsoft.EntityFrameworkCore.SqlServer, 8.0.8\n\nRecommendation:\n\nMicrosoft.EntityFrameworkCore.SqlServer 9.0.0",
+            "label": "Microsoft.EntityFrameworkCore.SqlServer 8.0.8"
+          }
+        },
+        {
+          "incidentId": "f0f9cdac-010e-403a-bda0-cd46877efc42",
+          "ruleId": "Project.0002",
+          "projectPath": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.App\\OT.Assessment.App.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        }
+      ]
+    },
+    {
+      "path": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 20,
+      "ruleInstances": [
+        {
+          "incidentId": "2b98108a-e6b5-4f73-8419-ce1374f68938",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Aspire.Hosting.AppHost, 8.2.0\n\nRecommendation:\n\nAspire.Hosting.AppHost 9.0.0",
+              "protected": "Aspire.Hosting.AppHost, 8.2.0\n\nRecommendation:\n\nAspire.Hosting.AppHost 9.0.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+            "snippet": "Aspire.Hosting.AppHost, 8.2.0\n\nRecommendation:\n\nAspire.Hosting.AppHost 9.0.0",
+            "protectedSnippet": "Aspire.Hosting.AppHost, 8.2.0\n\nRecommendation:\n\nAspire.Hosting.AppHost 9.0.0",
+            "label": "Aspire.Hosting.AppHost 8.2.0"
+          }
+        },
+        {
+          "incidentId": "2a7b28ad-34e6-4fa7-a9dc-a4b66c148dcc",
+          "ruleId": "Project.0002",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        },
+        {
+          "incidentId": "b25406aa-c214-4fbd-9df4-8aa7548d5e39",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var builder = DistributedApplication.CreateBuilder(args);",
+              "protected": "M:Aspire.Hosting.DistributedApplication.CreateBuilder(System.String[])"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "var builder = DistributedApplication.CreateBuilder(args);",
+            "protectedSnippet": "M:Aspire.Hosting.DistributedApplication.CreateBuilder(System.String[])",
+            "label": "M:Aspire.Hosting.DistributedApplication.CreateBuilder(System.String[])",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.distributedapplication.createbuilder",
+                "isCustom": false
+              }
+            ],
+            "line": 0,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "6b1f0d77-c567-4795-846b-f1a96459f59f",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Build().Run();",
+              "protected": "M:Aspire.Hosting.DistributedApplication.Run"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.Build().Run();",
+            "protectedSnippet": "M:Aspire.Hosting.DistributedApplication.Run",
+            "label": "M:Aspire.Hosting.DistributedApplication.Run",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.distributedapplication.run",
+                "isCustom": false
+              }
+            ],
+            "line": 10,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "f71a0bd1-8197-42df-bbb9-f8a591bced88",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_Consumer\u003E(\u0022ot-assessment-consumer\u0022);",
+              "protected": "T:Aspire.Hosting.ProjectResourceBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_Consumer\u003E(\u0022ot-assessment-consumer\u0022);",
+            "protectedSnippet": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "label": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 2,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "b92006fc-38d0-45b7-8135-4ee460719f94",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var builder = DistributedApplication.CreateBuilder(args);",
+              "protected": "T:Aspire.Hosting.IDistributedApplicationBuilder"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "var builder = DistributedApplication.CreateBuilder(args);",
+            "protectedSnippet": "T:Aspire.Hosting.IDistributedApplicationBuilder",
+            "label": "T:Aspire.Hosting.IDistributedApplicationBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.idistributedapplicationbuilder",
+                "isCustom": false
+              }
+            ],
+            "line": 0,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "2b359f37-3c4b-47dc-a054-97fee01f2e1e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Build().Run();",
+              "protected": "T:Aspire.Hosting.DistributedApplication"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.Build().Run();",
+            "protectedSnippet": "T:Aspire.Hosting.DistributedApplication",
+            "label": "T:Aspire.Hosting.DistributedApplication",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.distributedapplication",
+                "isCustom": false
+              }
+            ],
+            "line": 10,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "3d9cf266-0c3d-4209-b6be-009328cf30c3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Build().Run();",
+              "protected": "M:Aspire.Hosting.IDistributedApplicationBuilder.Build"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.Build().Run();",
+            "protectedSnippet": "M:Aspire.Hosting.IDistributedApplicationBuilder.Build",
+            "label": "M:Aspire.Hosting.IDistributedApplicationBuilder.Build",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.idistributedapplicationbuilder.build",
+                "isCustom": false
+              }
+            ],
+            "line": 10,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "51fa1676-6c8b-4e5f-88e1-cc5bff3a84a5",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_Data\u003E(\u0022ot-assessment-data\u0022);",
+              "protected": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_Data\u003E(\u0022ot-assessment-data\u0022);",
+            "protectedSnippet": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "label": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions.addproject",
+                "isCustom": false
+              }
+            ],
+            "line": 8,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "7d7753aa-fdf5-44cb-88ec-916e37e0d33c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_Tester\u003E(\u0022ot-assessment-tester\u0022);",
+              "protected": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_Tester\u003E(\u0022ot-assessment-tester\u0022);",
+            "protectedSnippet": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "label": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions.addproject",
+                "isCustom": false
+              }
+            ],
+            "line": 4,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "e10e9440-8c93-474a-ac83-a35e2b7acda8",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var builder = DistributedApplication.CreateBuilder(args);",
+              "protected": "T:Aspire.Hosting.DistributedApplication"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "var builder = DistributedApplication.CreateBuilder(args);",
+            "protectedSnippet": "T:Aspire.Hosting.DistributedApplication",
+            "label": "T:Aspire.Hosting.DistributedApplication",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.distributedapplication",
+                "isCustom": false
+              }
+            ],
+            "line": 0,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "b73da50c-fe4b-4995-bce4-bcf9f5337a20",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IProjectMetadata",
+              "protected": "T:Aspire.Hosting.IProjectMetadata"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\obj\\Debug\\net8.0\\Aspire\\references\\OT_Assessment_App.ProjectMetadata.g.cs",
+            "snippet": "IProjectMetadata",
+            "protectedSnippet": "T:Aspire.Hosting.IProjectMetadata",
+            "label": "T:Aspire.Hosting.IProjectMetadata",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.iprojectmetadata",
+                "isCustom": false
+              }
+            ],
+            "line": 7,
+            "column": 56
+          }
+        },
+        {
+          "incidentId": "27b48b8c-cbe1-422a-97f8-4f3f7247487e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IProjectMetadata",
+              "protected": "T:Aspire.Hosting.IProjectMetadata"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\obj\\Debug\\net8.0\\Aspire\\references\\OT_Assessment_Tester.ProjectMetadata.g.cs",
+            "snippet": "IProjectMetadata",
+            "protectedSnippet": "T:Aspire.Hosting.IProjectMetadata",
+            "label": "T:Aspire.Hosting.IProjectMetadata",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.iprojectmetadata",
+                "isCustom": false
+              }
+            ],
+            "line": 7,
+            "column": 59
+          }
+        },
+        {
+          "incidentId": "3406f6ce-2311-4c12-a09e-66b8176ca6b3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_Consumer\u003E(\u0022ot-assessment-consumer\u0022);",
+              "protected": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_Consumer\u003E(\u0022ot-assessment-consumer\u0022);",
+            "protectedSnippet": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "label": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions.addproject",
+                "isCustom": false
+              }
+            ],
+            "line": 2,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "c381ba4f-734a-4a78-8dba-7349256f6fbb",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IProjectMetadata",
+              "protected": "T:Aspire.Hosting.IProjectMetadata"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\obj\\Debug\\net8.0\\Aspire\\references\\OT_Assessment_Consumer.ProjectMetadata.g.cs",
+            "snippet": "IProjectMetadata",
+            "protectedSnippet": "T:Aspire.Hosting.IProjectMetadata",
+            "label": "T:Aspire.Hosting.IProjectMetadata",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.iprojectmetadata",
+                "isCustom": false
+              }
+            ],
+            "line": 7,
+            "column": 61
+          }
+        },
+        {
+          "incidentId": "74b41746-7232-413d-b945-7c0198e29358",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IProjectMetadata",
+              "protected": "T:Aspire.Hosting.IProjectMetadata"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\obj\\Debug\\net8.0\\Aspire\\references\\OT_Assessment_Data.ProjectMetadata.g.cs",
+            "snippet": "IProjectMetadata",
+            "protectedSnippet": "T:Aspire.Hosting.IProjectMetadata",
+            "label": "T:Aspire.Hosting.IProjectMetadata",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.iprojectmetadata",
+                "isCustom": false
+              }
+            ],
+            "line": 7,
+            "column": 57
+          }
+        },
+        {
+          "incidentId": "e205c83c-a324-471c-b0af-101ea02710b3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_Tester\u003E(\u0022ot-assessment-tester\u0022);",
+              "protected": "T:Aspire.Hosting.ProjectResourceBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_Tester\u003E(\u0022ot-assessment-tester\u0022);",
+            "protectedSnippet": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "label": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 4,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "6adf2ffe-9777-4f1c-aae0-8033dabfa495",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_App\u003E(\u0022ot-assessment-app\u0022);",
+              "protected": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_App\u003E(\u0022ot-assessment-app\u0022);",
+            "protectedSnippet": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "label": "M:Aspire.Hosting.ProjectResourceBuilderExtensions.AddProject\u0060\u00601(Aspire.Hosting.IDistributedApplicationBuilder,System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions.addproject",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "5bb81b6d-d921-4604-925c-744a88459013",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_App\u003E(\u0022ot-assessment-app\u0022);",
+              "protected": "T:Aspire.Hosting.ProjectResourceBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_App\u003E(\u0022ot-assessment-app\u0022);",
+            "protectedSnippet": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "label": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "48978e2f-59a7-4d28-a892-96a597493dc3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.Hosting, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.AppHost\\OT.Assessment.AppHost.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddProject\u003CProjects.OT_Assessment_Data\u003E(\u0022ot-assessment-data\u0022);",
+              "protected": "T:Aspire.Hosting.ProjectResourceBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.AppHost\\Program.cs",
+            "snippet": "builder.AddProject\u003CProjects.OT_Assessment_Data\u003E(\u0022ot-assessment-data\u0022);",
+            "protectedSnippet": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "label": "T:Aspire.Hosting.ProjectResourceBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/aspire.hosting.projectresourcebuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 8,
+            "column": 0
+          }
+        }
+      ]
+    },
+    {
+      "path": "src\\OT.Assessment.Common\\OT.Assessment.Common.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "ruleInstances": [
+        {
+          "incidentId": "b715f8d9-9561-4724-9175-fa29f6c0b538",
+          "ruleId": "Project.0002",
+          "projectPath": "src\\OT.Assessment.Common\\OT.Assessment.Common.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Common\\OT.Assessment.Common.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        }
+      ]
+    },
+    {
+      "path": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 6,
+      "ruleInstances": [
+        {
+          "incidentId": "ed9ed331-c474-4a1e-9902-9fbbce4bd9cb",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Aspire.RabbitMQ.Client, 8.2.0\n\nRecommendation:\n\nAspire.RabbitMQ.Client 9.0.0",
+              "protected": "Aspire.RabbitMQ.Client, 8.2.0\n\nRecommendation:\n\nAspire.RabbitMQ.Client 9.0.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+            "snippet": "Aspire.RabbitMQ.Client, 8.2.0\n\nRecommendation:\n\nAspire.RabbitMQ.Client 9.0.0",
+            "protectedSnippet": "Aspire.RabbitMQ.Client, 8.2.0\n\nRecommendation:\n\nAspire.RabbitMQ.Client 9.0.0",
+            "label": "Aspire.RabbitMQ.Client 8.2.0"
+          }
+        },
+        {
+          "incidentId": "d0a9f680-241e-488e-a205-fcba7eb0d3f5",
+          "ruleId": "Project.0002",
+          "projectPath": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        },
+        {
+          "incidentId": "b932f5b5-b09b-4394-9bd1-ecec37962388",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.RabbitMQ.Client, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddRabbitMQClient(\u0022messaging\u0022);",
+              "protected": "M:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions.AddRabbitMQClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Aspire.RabbitMQ.Client.RabbitMQClientSettings},System.Action{RabbitMQ.Client.ConnectionFactory})"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Consumer\\Program.cs",
+            "snippet": "builder.AddRabbitMQClient(\u0022messaging\u0022);",
+            "protectedSnippet": "M:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions.AddRabbitMQClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Aspire.RabbitMQ.Client.RabbitMQClientSettings},System.Action{RabbitMQ.Client.ConnectionFactory})",
+            "label": "M:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions.AddRabbitMQClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Aspire.RabbitMQ.Client.RabbitMQClientSettings},System.Action{RabbitMQ.Client.ConnectionFactory})",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.aspirerabbitmqextensions.addrabbitmqclient",
+                "isCustom": false
+              }
+            ],
+            "line": 11,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "678f849d-f7a7-4275-90be-4b59853c8c9c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.RabbitMQ.Client, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddRabbitMQClient(connectionName, configureConnectionFactory: factory =\u003E\r\n            {\r\n                ((ConnectionFactory)factory).DispatchConsumersAsync = true;\r\n            });",
+              "protected": "M:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions.AddRabbitMQClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Aspire.RabbitMQ.Client.RabbitMQClientSettings},System.Action{RabbitMQ.Client.ConnectionFactory})"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Consumer\\Extensions\\RabbitMqDiExtensions.cs",
+            "snippet": "builder.AddRabbitMQClient(connectionName, configureConnectionFactory: factory =\u003E\r\n            {\r\n                ((ConnectionFactory)factory).DispatchConsumersAsync = true;\r\n            });",
+            "protectedSnippet": "M:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions.AddRabbitMQClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Aspire.RabbitMQ.Client.RabbitMQClientSettings},System.Action{RabbitMQ.Client.ConnectionFactory})",
+            "label": "M:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions.AddRabbitMQClient(Microsoft.Extensions.Hosting.IHostApplicationBuilder,System.String,System.Action{Aspire.RabbitMQ.Client.RabbitMQClientSettings},System.Action{RabbitMQ.Client.ConnectionFactory})",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.aspirerabbitmqextensions.addrabbitmqclient",
+                "isCustom": false
+              }
+            ],
+            "line": 24,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "56251735-4d9c-4224-bb1c-a3e524e5b6f0",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.RabbitMQ.Client, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddRabbitMQClient(\u0022messaging\u0022);",
+              "protected": "T:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Consumer\\Program.cs",
+            "snippet": "builder.AddRabbitMQClient(\u0022messaging\u0022);",
+            "protectedSnippet": "T:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions",
+            "label": "T:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.aspirerabbitmqextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 11,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "c52fffc2-0db2-4d57-8018-17b61390be41",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Aspire.RabbitMQ.Client, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.Consumer\\OT.Assessment.Consumer.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.AddRabbitMQClient(connectionName, configureConnectionFactory: factory =\u003E\r\n            {\r\n                ((ConnectionFactory)factory).DispatchConsumersAsync = true;\r\n            });",
+              "protected": "T:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Consumer\\Extensions\\RabbitMqDiExtensions.cs",
+            "snippet": "builder.AddRabbitMQClient(connectionName, configureConnectionFactory: factory =\u003E\r\n            {\r\n                ((ConnectionFactory)factory).DispatchConsumersAsync = true;\r\n            });",
+            "protectedSnippet": "T:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions",
+            "label": "T:Microsoft.Extensions.Hosting.AspireRabbitMQExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.aspirerabbitmqextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 24,
+            "column": 12
+          }
+        }
+      ]
+    },
+    {
+      "path": "src\\OT.Assessment.Core\\OT.Assessment.Core.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "ruleInstances": [
+        {
+          "incidentId": "49a46efa-4252-4358-9025-6c310325636f",
+          "ruleId": "Project.0002",
+          "projectPath": "src\\OT.Assessment.Core\\OT.Assessment.Core.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.Core\\OT.Assessment.Core.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        }
+      ]
+    },
+    {
+      "path": "tests\\OT.Assessment.IntegrationTests\\OT.Assessment.IntegrationTests.csproj",
+      "startingProject": true,
+      "issues": 2,
+      "storyPoints": 2,
+      "ruleInstances": [
+        {
+          "incidentId": "12b044eb-50c5-4bca-ba97-75bde6b73956",
+          "ruleId": "NuGet.0002",
+          "projectPath": "tests\\OT.Assessment.IntegrationTests\\OT.Assessment.IntegrationTests.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Mvc.Testing, 8.0.8\n\nRecommendation:\n\nMicrosoft.AspNetCore.Mvc.Testing 9.0.0",
+              "protected": "Microsoft.AspNetCore.Mvc.Testing, 8.0.8\n\nRecommendation:\n\nMicrosoft.AspNetCore.Mvc.Testing 9.0.0"
+            },
+            "kind": "File",
+            "path": "tests\\OT.Assessment.IntegrationTests\\OT.Assessment.IntegrationTests.csproj",
+            "snippet": "Microsoft.AspNetCore.Mvc.Testing, 8.0.8\n\nRecommendation:\n\nMicrosoft.AspNetCore.Mvc.Testing 9.0.0",
+            "protectedSnippet": "Microsoft.AspNetCore.Mvc.Testing, 8.0.8\n\nRecommendation:\n\nMicrosoft.AspNetCore.Mvc.Testing 9.0.0",
+            "label": "Microsoft.AspNetCore.Mvc.Testing 8.0.8"
+          }
+        },
+        {
+          "incidentId": "348163bb-4ab1-4d14-8c8b-2a5743ec2e66",
+          "ruleId": "Project.0002",
+          "projectPath": "tests\\OT.Assessment.IntegrationTests\\OT.Assessment.IntegrationTests.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "tests\\OT.Assessment.IntegrationTests\\OT.Assessment.IntegrationTests.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        }
+      ]
+    },
+    {
+      "path": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 12,
+      "ruleInstances": [
+        {
+          "incidentId": "7b7154f2-25bb-4127-a302-e15c22c5d7ae",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.Http.Resilience, 8.8.0\n\nRecommendation:\n\nMicrosoft.Extensions.Http.Resilience 9.0.0",
+              "protected": "Microsoft.Extensions.Http.Resilience, 8.8.0\n\nRecommendation:\n\nMicrosoft.Extensions.Http.Resilience 9.0.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+            "snippet": "Microsoft.Extensions.Http.Resilience, 8.8.0\n\nRecommendation:\n\nMicrosoft.Extensions.Http.Resilience 9.0.0",
+            "protectedSnippet": "Microsoft.Extensions.Http.Resilience, 8.8.0\n\nRecommendation:\n\nMicrosoft.Extensions.Http.Resilience 9.0.0",
+            "label": "Microsoft.Extensions.Http.Resilience 8.8.0"
+          }
+        },
+        {
+          "incidentId": "3a042352-d0c8-4bcc-9381-fb90adcec28c",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.ServiceDiscovery, 8.2.0\n\nRecommendation:\n\nMicrosoft.Extensions.ServiceDiscovery 9.0.0",
+              "protected": "Microsoft.Extensions.ServiceDiscovery, 8.2.0\n\nRecommendation:\n\nMicrosoft.Extensions.ServiceDiscovery 9.0.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+            "snippet": "Microsoft.Extensions.ServiceDiscovery, 8.2.0\n\nRecommendation:\n\nMicrosoft.Extensions.ServiceDiscovery 9.0.0",
+            "protectedSnippet": "Microsoft.Extensions.ServiceDiscovery, 8.2.0\n\nRecommendation:\n\nMicrosoft.Extensions.ServiceDiscovery 9.0.0",
+            "label": "Microsoft.Extensions.ServiceDiscovery 8.2.0"
+          }
+        },
+        {
+          "incidentId": "5100c073-9476-4ede-81f1-6253b9aa0872",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "OpenTelemetry.Instrumentation.AspNetCore, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.AspNetCore 1.10.1",
+              "protected": "OpenTelemetry.Instrumentation.AspNetCore, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.AspNetCore 1.10.1"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+            "snippet": "OpenTelemetry.Instrumentation.AspNetCore, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.AspNetCore 1.10.1",
+            "protectedSnippet": "OpenTelemetry.Instrumentation.AspNetCore, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.AspNetCore 1.10.1",
+            "label": "OpenTelemetry.Instrumentation.AspNetCore 1.9.0"
+          }
+        },
+        {
+          "incidentId": "6cfd6299-59e8-49a2-ad5b-71bcf3ffd987",
+          "ruleId": "NuGet.0002",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "OpenTelemetry.Instrumentation.Http, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.Http 1.10.0",
+              "protected": "OpenTelemetry.Instrumentation.Http, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.Http 1.10.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+            "snippet": "OpenTelemetry.Instrumentation.Http, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.Http 1.10.0",
+            "protectedSnippet": "OpenTelemetry.Instrumentation.Http, 1.9.0\n\nRecommendation:\n\nOpenTelemetry.Instrumentation.Http 1.10.0",
+            "label": "OpenTelemetry.Instrumentation.Http 1.9.0"
+          }
+        },
+        {
+          "incidentId": "3f2b1b34-c61f-4501-876a-ede86dd125c3",
+          "ruleId": "Project.0002",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        },
+        {
+          "incidentId": "ed3dc592-73ca-43a7-8e05-932e439bf604",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.ServiceDiscovery, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Services.AddServiceDiscovery();",
+              "protected": "M:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryServiceCollectionExtensions.AddServiceDiscovery(Microsoft.Extensions.DependencyInjection.IServiceCollection)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "builder.Services.AddServiceDiscovery();",
+            "protectedSnippet": "M:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryServiceCollectionExtensions.AddServiceDiscovery(Microsoft.Extensions.DependencyInjection.IServiceCollection)",
+            "label": "M:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryServiceCollectionExtensions.AddServiceDiscovery(Microsoft.Extensions.DependencyInjection.IServiceCollection)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicediscoveryservicecollectionextensions.addservicediscovery",
+                "isCustom": false
+              }
+            ],
+            "line": 22,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5c3cfda9-9ebc-4f64-8c1e-a11a85dfb06b",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.ServiceDiscovery, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "http.AddServiceDiscovery();",
+              "protected": "T:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryHttpClientBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "http.AddServiceDiscovery();",
+            "protectedSnippet": "T:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryHttpClientBuilderExtensions",
+            "label": "T:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryHttpClientBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicediscoveryhttpclientbuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 30,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "cd0396ec-4599-40f2-8e0c-9cd2ea594034",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.Http.Resilience, 9.0.0-preview.5.24301.1.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "http.AddStandardResilienceHandler();",
+              "protected": "T:Microsoft.Extensions.DependencyInjection.ResilienceHttpClientBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "http.AddStandardResilienceHandler();",
+            "protectedSnippet": "T:Microsoft.Extensions.DependencyInjection.ResilienceHttpClientBuilderExtensions",
+            "label": "T:Microsoft.Extensions.DependencyInjection.ResilienceHttpClientBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.resiliencehttpclientbuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 27,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a6c93c16-5426-4e8e-b1ea-806a7ab9b7a6",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.ServiceDiscovery, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Services.AddServiceDiscovery();",
+              "protected": "T:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryServiceCollectionExtensions"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "builder.Services.AddServiceDiscovery();",
+            "protectedSnippet": "T:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryServiceCollectionExtensions",
+            "label": "T:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryServiceCollectionExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicediscoveryservicecollectionextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 22,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "36069dc6-cf10-4428-8757-4c111a3fb5d1",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.ServiceDiscovery, 9.0.0-preview.4.24229.9.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "http.AddServiceDiscovery();",
+              "protected": "M:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryHttpClientBuilderExtensions.AddServiceDiscovery(Microsoft.Extensions.DependencyInjection.IHttpClientBuilder)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "http.AddServiceDiscovery();",
+            "protectedSnippet": "M:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryHttpClientBuilderExtensions.AddServiceDiscovery(Microsoft.Extensions.DependencyInjection.IHttpClientBuilder)",
+            "label": "M:Microsoft.Extensions.DependencyInjection.ServiceDiscoveryHttpClientBuilderExtensions.AddServiceDiscovery(Microsoft.Extensions.DependencyInjection.IHttpClientBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicediscoveryhttpclientbuilderextensions.addservicediscovery",
+                "isCustom": false
+              }
+            ],
+            "line": 30,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6d11bf65-21c2-4376-8c4b-36dc4af20725",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.Http.Resilience, 9.0.0-preview.5.24301.1.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "http.AddStandardResilienceHandler();",
+              "protected": "T:Microsoft.Extensions.Http.Resilience.IHttpStandardResiliencePipelineBuilder"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "http.AddStandardResilienceHandler();",
+            "protectedSnippet": "T:Microsoft.Extensions.Http.Resilience.IHttpStandardResiliencePipelineBuilder",
+            "label": "T:Microsoft.Extensions.Http.Resilience.IHttpStandardResiliencePipelineBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.http.resilience.ihttpstandardresiliencepipelinebuilder",
+                "isCustom": false
+              }
+            ],
+            "line": 27,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7654df4f-427f-4eca-9537-e6e4a13801d1",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.Extensions.Http.Resilience, 9.0.0-preview.5.24301.1.",
+          "projectPath": "src\\OT.Assessment.ServiceDefaults\\OT.Assessment.ServiceDefaults.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "http.AddStandardResilienceHandler();",
+              "protected": "M:Microsoft.Extensions.DependencyInjection.ResilienceHttpClientBuilderExtensions.AddStandardResilienceHandler(Microsoft.Extensions.DependencyInjection.IHttpClientBuilder)"
+            },
+            "kind": "File",
+            "path": "src\\OT.Assessment.ServiceDefaults\\Extensions.cs",
+            "snippet": "http.AddStandardResilienceHandler();",
+            "protectedSnippet": "M:Microsoft.Extensions.DependencyInjection.ResilienceHttpClientBuilderExtensions.AddStandardResilienceHandler(Microsoft.Extensions.DependencyInjection.IHttpClientBuilder)",
+            "label": "M:Microsoft.Extensions.DependencyInjection.ResilienceHttpClientBuilderExtensions.AddStandardResilienceHandler(Microsoft.Extensions.DependencyInjection.IHttpClientBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.resiliencehttpclientbuilderextensions.addstandardresiliencehandler",
+                "isCustom": false
+              }
+            ],
+            "line": 27,
+            "column": 12
+          }
+        }
+      ]
+    },
+    {
+      "path": "tests\\OT.Assessment.Tester\\OT.Assessment.Tester.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "ruleInstances": [
+        {
+          "incidentId": "f6c4b388-1b08-494c-ac8c-af4cfa8627bd",
+          "ruleId": "Project.0002",
+          "projectPath": "tests\\OT.Assessment.Tester\\OT.Assessment.Tester.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "tests\\OT.Assessment.Tester\\OT.Assessment.Tester.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        }
+      ]
+    },
+    {
+      "path": "tests\\OT.Assessment.UnitTests\\OT.Assessment.UnitTests.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "ruleInstances": [
+        {
+          "incidentId": "ecbe9726-acd7-4425-8838-9664bc3a9119",
+          "ruleId": "Project.0002",
+          "projectPath": "tests\\OT.Assessment.UnitTests\\OT.Assessment.UnitTests.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net8.0\nNew: net9.0",
+              "protected": "Current: net8.0\nNew: net9.0"
+            },
+            "kind": "File",
+            "path": "tests\\OT.Assessment.UnitTests\\OT.Assessment.UnitTests.csproj",
+            "snippet": "Current: net8.0\nNew: net9.0",
+            "protectedSnippet": "Current: net8.0\nNew: net9.0"
+          }
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in moderrn .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "description": "Some API that lived in older versions of .NET frameworks were moved to standalone NuGet packages that could be added to projects explicitly.",
+      "label": "API available in NuGet package",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
