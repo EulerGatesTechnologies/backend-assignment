@@ -31,8 +31,7 @@ namespace OT.Assessment.App.Controllers
 
         //POST api/player/casinowager
         [HttpPost("casinowager")]
-        public async Task<IResult> CreatePlayerCasinoWagerAsync([FromBody] CasinoWager casinoWager,
-            [AsParameters] PlayerServices services)
+        public async Task<IResult> CreatePlayerCasinoWagerAsync([FromBody] CasinoWager casinoWager)
         {
             // Send a message to the queue in RabbitMQ
             var factory = new ConnectionFactory { HostName = "localhost" };
@@ -77,7 +76,7 @@ namespace OT.Assessment.App.Controllers
         {
             string sql = @"sp_GetCasinoWagerByPlayerId";
 
-            using var connection = services.DbContext. .GetDbConnection();
+            using var connection = services.DbContext.GetDbConnection();
 
             var wagers = await connection.QueryAsync<CasinoWager>(sql, new { AccountId = playerId });
             int pageSize = paginationRequest.PageSize;
