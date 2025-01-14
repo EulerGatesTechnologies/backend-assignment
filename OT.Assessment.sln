@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Tester", "tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7EFE3E75-8316-420D-AFA3-ECE90ECF22BB}"
 	ProjectSection(SolutionItems) = preProject
-		src\OT.Assessment.Dapper\DatabaseGenerate.sql = src\OT.Assessment.Dapper\DatabaseGenerate.sql
+		src\OT.Assessment.Db\DatabaseGenerate.sql = src\OT.Assessment.Db\DatabaseGenerate.sql
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.ServiceDefaul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Core", "src\OT.Assessment.Core\OT.Assessment.Core.csproj", "{12FFD8AF-7D12-460E-8CF8-70F10623DCDC}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "OT.Assessment.Dapper", "src\OT.Assessment.Dapper\OT.Assessment.Dapper.sqlproj", "{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "OT.Assessment.Db", "src\OT.Assessment.Db\OT.Assessment.Db.sqlproj", "{45FA259E-E4C7-4E70-B9E0-3FF73E68B58B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Assessment.Common", "src\OT.Assessment.Common\OT.Assessment.Common.csproj", "{555016C9-37BA-4025-94F8-113897F2CC87}"
 EndProject
