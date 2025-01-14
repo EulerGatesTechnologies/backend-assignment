@@ -31,7 +31,7 @@ namespace OT.Assessment.App.Controllers
 
         //POST api/player/casinowager
         [HttpPost("casinowager")]
-        public async Task<IResult> CreatePlayerCasinoWagerAsync([FromBody] CasinoWager casinoWager)
+        public async Task<IResult> CreateCasinoWagerAsync([FromBody] CasinoWager casinoWager)
         {
             // Send a message to the queue in RabbitMQ
             var factory = new ConnectionFactory { HostName = "localhost" };
@@ -40,23 +40,23 @@ namespace OT.Assessment.App.Controllers
            
             using IModel channel = connection.CreateModel();
 
-            channel.QueueDeclare(queue: CoreConsts.QueueName,
+            channel.QueueDeclare(queue: CoreConsts.PlayerEvents,
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
                 arguments: null);
 
             // TODO-SK: Deserialize?
-            var message = JsonSerializer.Serialize(casinoWager);
+            string  message = JsonSerializer.Serialize(casinoWager);
 
             var body = Encoding.UTF8.GetBytes(message);
 
             channel.BasicPublish(exchange: string.Empty,
-                routingKey: CoreConsts.QueueName,
+                routingKey: CoreConsts.PlayerEvents,
                 basicProperties: null,
                 body: body);
 
-            return TypedResults.Ok(); // Placeholder response
+            return await Task.FromResult(TypedResults.Ok()); // Placeholder response
         }
 
         /// <summary>

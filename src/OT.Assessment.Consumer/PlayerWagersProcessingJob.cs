@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using OT.Assessment.Common;
+using OT.Assessment.Core;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -26,7 +27,7 @@ namespace OT.Assessment.Consumer
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            string queueName  = AppConsts.DefaultQueueName;
+            string queueName  = CoreConsts.PlayerEvents;
             
             _messageConnection = _serviceProvider.GetService<IConnection>();
 
