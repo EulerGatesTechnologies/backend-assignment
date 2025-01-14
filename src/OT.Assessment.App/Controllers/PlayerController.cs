@@ -1,7 +1,9 @@
-﻿using System.Text;
+﻿using System.Data;
+using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using OT.Assessment.App.CasinoWagers.Dto;
 using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
@@ -10,6 +12,8 @@ using OT.Assessment.App.Players.Dtos;
 using OT.Assessment.Core;
 
 using RabbitMQ.Client;
+
+using static OT.Assessment.Core.AppConsts;
 
 namespace OT.Assessment.App.Controllers
 {
@@ -40,7 +44,7 @@ namespace OT.Assessment.App.Controllers
            
             using IModel channel = connection.CreateModel();
 
-            channel.QueueDeclare(queue: CoreConsts.PlayerEvents,
+            channel.QueueDeclare(queue: AppConsts.PlayerEvents,
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
@@ -52,7 +56,7 @@ namespace OT.Assessment.App.Controllers
             var body = Encoding.UTF8.GetBytes(message);
 
             channel.BasicPublish(exchange: string.Empty,
-                routingKey: CoreConsts.PlayerEvents,
+                routingKey: AppConsts.PlayerEvents,
                 basicProperties: null,
                 body: body);
 
@@ -76,7 +80,7 @@ namespace OT.Assessment.App.Controllers
         {
             string sql = @"sp_GetCasinoWagerByPlayerId";
 
-            using var connection = services.DbContext.GetDbConnection();
+            using IDbConnection connection = new SqlConnection(GetConnectionString());
 
             var wagers = await connection.QueryAsync<CasinoWager>(sql, new { AccountId = playerId });
             int pageSize = paginationRequest.PageSize;

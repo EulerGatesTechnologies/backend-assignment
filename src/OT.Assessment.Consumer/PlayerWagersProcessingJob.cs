@@ -27,7 +27,7 @@ namespace OT.Assessment.Consumer
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            string queueName  = CoreConsts.PlayerEvents;
+            string queueName  = AppConsts.PlayerEvents;
             
             _messageConnection = _serviceProvider.GetService<IConnection>();
 
