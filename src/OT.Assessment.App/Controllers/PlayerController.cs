@@ -8,12 +8,15 @@ using OT.Assessment.App.CasinoWagers.Dto;
 using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
 using OT.Assessment.App.Models;
+using OT.Assessment.App.Models.Players.Dto;
 using OT.Assessment.App.Players.Dtos;
 using OT.Assessment.Core;
 
 using RabbitMQ.Client;
 
 using static OT.Assessment.Core.AppConsts;
+
+using Dapper;
 
 namespace OT.Assessment.App.Controllers
 {
@@ -82,7 +85,7 @@ namespace OT.Assessment.App.Controllers
 
             using IDbConnection connection = new SqlConnection(GetConnectionString());
 
-            var wagers = await connection.QueryAsync<CasinoWager>(sql, new { AccountId = playerId });
+            var wagers =  connection.Query<PlayerCasinoWagerDto>(sql, new { AccountId = playerId });
             int pageSize = paginationRequest.PageSize;
             int pageIndex = paginationRequest.PageIndex;
 

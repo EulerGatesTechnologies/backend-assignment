@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace OT.Assessment.App.Players.Dtos
+namespace OT.Assessment.App.Models.Players.Dto
 {
     public class PlayerMapProfile : Profile
     {
