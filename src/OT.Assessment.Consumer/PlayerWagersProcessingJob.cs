@@ -1,6 +1,6 @@
 using System.Text;
 using Microsoft.Extensions.Configuration;
-using OT.Assessment.Core;
+using OT.Assessment.Common;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -26,10 +26,12 @@ namespace OT.Assessment.Consumer
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            string queueName  = AppConsts.DefaultQueueName;
+            
             _messageConnection = _serviceProvider.GetService<IConnection>();
 
             _messageChannel = _messageConnection!.CreateModel();
-            _messageChannel.QueueDeclare(queue: CoreConsts.QueueName,
+            _messageChannel.QueueDeclare(queue: queueName,
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
@@ -38,7 +40,7 @@ namespace OT.Assessment.Consumer
             var consumer = new EventingBasicConsumer(_messageChannel);
             consumer.Received += ProcessMessageAsync;
 
-            _messageChannel.BasicConsume(queue: CoreConsts.QueueName,
+            _messageChannel.BasicConsume(queue: queueName,
                 autoAck: true,
                 consumer: consumer);
 

@@ -9,8 +9,8 @@
     <PackageReference Include="Aspire.RabbitMQ.Client" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OT.Assessment.Common\OT.Assessment.Common.csproj" />
     <ProjectReference Include="..\OT.Assessment.Core\OT.Assessment.Core.csproj" />
-    <ProjectReference Include="..\OT.Assessment.EventBusRabbitMq\OT.Assessment.EventBusRabbitMq.csproj" />
     <ProjectReference Include="..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
   </ItemGroup>
   <ItemGroup>

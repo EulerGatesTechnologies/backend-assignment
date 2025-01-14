@@ -1,4 +1,6 @@
-namespace OT.Assessment.FunctionalTests.Tests;
+namespace OT.Assessment.FunctionalTests;
+
+using Xunit;
 
 public class IntegrationTest1
 {
@@ -12,10 +14,10 @@ public class IntegrationTest1
     // 2. Uncomment the following example test and update 'Projects.MyAspireApp_AppHost' to match your AppHost project:
     //
     [Fact]
-     public async Task GetWebResourceRootReturnsOkStatusCode()
+     public async Task Get_EndpointsReturnSuccessAndCorrectContentType()//EndpointsReturnSuccessAndCorrectContentType
     {
     //     // Arrange
-    //     var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.MyAspireApp_AppHost>();
+           var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.MyAspireApp_AppHost>();
     //     appHost.Services.ConfigureHttpClientDefaults(clientBuilder =>
     //     {
     //         clientBuilder.AddStandardResilienceHandler();

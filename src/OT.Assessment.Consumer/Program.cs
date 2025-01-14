@@ -9,17 +9,18 @@ var builder = Host.CreateApplicationBuilder(args);
 // Reference below package found in ASPIRE's ServiceDefaults projects in the current workspac/solution.
 builder.AddServiceDefaults();
 
+// Passing default connection name...
 builder.AddRabbitMQClient("messaging");
 
-builder.AddRabbitMqEventBus("EventBus");
+//builder.AddRabbitMqEventBus("EventBus");
 
 builder.Services.AddHostedService<PlayerWagersProcessingJob>();
 
-builder.Services.AddSingleton<IEventBus, RabbitMQEventBus>();
+//builder.Services.AddSingleton<IEventBus, RabbitMQEventBus>();
 // Start consuming messages as soon as the application starts
-builder.Services.AddSingleton<IHostedService>(sp => (RabbitMQEventBus)sp.GetRequiredService<IEventBus>());
+//builder.Services.AddSingleton<IHostedService>(sp => (RabbitMQEventBus)sp.GetRequiredService<IEventBus>());
 
-return new EventBusBuilder(builder.Services);
+//return new EventBusBuilder(builder.Services);
 
 var host = builder.Build();
 
