@@ -4,10 +4,10 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	SELECT pcw.*
-	FROM [dbo].[PlayerAccount] pa	
-	JOIN [dbo].[PlayerCasinoWager] pcw
-	ON pa.AccountId = pcw.AccountId
-	WHERE pa.Id = @PlayerId;
+	SELECT pcw.AccountId, pcw.Game, pcw.[Provider], pcw.Amount,	pa.Username
+		FROM [dbo].[PlayerAccount] pa	
+		 LEFT JOIN [dbo].[PlayerCasinoWager] pcw
+		ON pa.AccountId = pcw.AccountId
+		WHERE 
 
 END

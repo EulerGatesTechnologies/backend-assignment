@@ -1,4 +1,4 @@
-﻿namespace OT.Assessment.App.Models.Players.Dto
+﻿namespace OT.Assessment.App.DomainModels.Players.Dtos
 {
     public class PlayerAccountDto
     {

@@ -4,12 +4,8 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using OT.Assessment.App.CasinoWagers.Dto;
-using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
 using OT.Assessment.App.Models;
-using OT.Assessment.App.Models.Players.Dto;
-using OT.Assessment.App.Players.Dtos;
 using OT.Assessment.Core;
 
 using RabbitMQ.Client;
@@ -17,6 +13,8 @@ using RabbitMQ.Client;
 using static OT.Assessment.Core.AppConsts;
 
 using Dapper;
+using OT.Assessment.App.DomainModels.Players.Dtos;
+using OT.Assessment.App.Models.CasinoWagers.Dtos;
 
 namespace OT.Assessment.App.Controllers
 {
@@ -38,8 +36,10 @@ namespace OT.Assessment.App.Controllers
 
         //POST api/player/casinowager
         [HttpPost("casinowager")]
-        public async Task<IResult> CreateCasinoWagerAsync([FromBody] CasinoWager casinoWager)
+        public async Task<IResult> CreateCasinoWagerAsync([FromBody] PlayerCasinoWagerDto casinoWager)
         {
+            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(casinoWager));
+
             // Send a message to the queue in RabbitMQ
             var factory = new ConnectionFactory { HostName = "localhost" };
 
@@ -51,12 +51,7 @@ namespace OT.Assessment.App.Controllers
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
-                arguments: null);
-
-            // TODO-SK: Deserialize?
-            string  message = JsonSerializer.Serialize(casinoWager);
-
-            var body = Encoding.UTF8.GetBytes(message);
+                arguments: null);            
 
             channel.BasicPublish(exchange: string.Empty,
                 routingKey: AppConsts.PlayerEvents,
@@ -67,7 +62,7 @@ namespace OT.Assessment.App.Controllers
         }
 
         /// <summary>
-        /// Returns a paginated list of the latest casino wagers for a specific player.
+        /// Returns a paginated list of the latest casino playerCasinoWagers for a specific player.
         /// </summary>
         /// <param name="paginationRequest"></param>
         /// <param name="services"></param>
@@ -76,28 +71,28 @@ namespace OT.Assessment.App.Controllers
 
         //GET api/player/{playerId}/casino
         [HttpGet("{playerId}/casino")]
-        public async Task<Ok<PaginatedItems<CasinoWagerDto>>> GetCasinoWagersByPlayerIdAsync([FromQuery]
-            [AsParameters] PaginationRequest paginationRequest,
-            [AsParameters] PlayerServices services,
+        public async Task<Ok<PaginatedItems<PlayerCasinoWagerDto>>> GetCasinoWagersByPlayerIdAsync([AsParameters] 
+            PaginationRequest paginationRequest,
             Guid playerId)
         {
             string sql = @"sp_GetCasinoWagerByPlayerId";
 
             using IDbConnection connection = new SqlConnection(GetConnectionString());
 
-            var wagers =  connection.Query<PlayerCasinoWagerDto>(sql, new { AccountId = playerId });
+            IEnumerable<PlayerCasinoWagerDto> playerCasinoWagers 
+                =  await connection.QueryAsync<PlayerCasinoWagerDto>(sql, new { AccountId = playerId });
+
             int pageSize = paginationRequest.PageSize;
             int pageIndex = paginationRequest.PageIndex;
 
             // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
-            var wagersOnPage = await services.DbContext.PlayerCasinoWagers
+            var wagersOnPage = playerCasinoWagers
                 .OrderBy(w => w.CreatedDateTime)
-                .Skip(pageSize * pageIndex)
+                .Skip(pageSize)
                 .Take(pageSize)
-                .AsNoTracking()
-                .ToListAsync();
+                .ToList();
 
-            return TypedResults.Ok(new PaginatedItems<CasinoWagerDto>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0 , data: wagersOnPage)); // Placeholder response
+            return TypedResults.Ok(new PaginatedItems<PlayerCasinoWagerDto>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0 , data: wagersOnPage)); // Placeholder response
         }
 
         /// <summary>
@@ -107,25 +102,28 @@ namespace OT.Assessment.App.Controllers
         /// <returns></returns>
         //GET api/player/topSpenders?count=10
         [HttpGet("topSpenders")]
-        public async Task<Ok<PaginatedItems<PlayerAccountDto>>> GetTopSpendersAsync([FromQuery]
-            [AsParameters] PaginationRequest paginationRequest,
-            [AsParameters] PlayerServices services, int count = 10)
-        { 
-            // Your logic to retrieve the top spenders
-            // For example:
-            var topSpenders = services.DbContext.PlayerAccounts.ToListAsync<PlayerAccount>;
+        public async Task<Ok<PaginatedItems<PlayerAccountDto>>> GetTopSpendersAsync(PlayerServices services, 
+            int count = 10)
+        {
+     
 
-            int pageSize = paginationRequest.PageSize;
-            int pageIndex = paginationRequest.PageIndex;
+            var playerParams = new DynamicParameters();
+            playerParams.Add("@PlayerId", searchTerm); 
+            
+            string sql = @"sp_GetPlayerAccounts";
 
+            using IDbConnection connection = new SqlConnection(GetConnectionString());
+
+            var playerCasinoWagers = await connection.QueryAsync<PlayerCasinoWagerDto>(sql, playerParams);
+            
             // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
-            var wagersOnPage = await services.DbContext.PlayerAccounts
-                .Skip(pageSize * pageIndex)
-                .Take(pageSize)
-                .AsNoTracking()
-                .ToListAsync();
+            var topSpenders = playerCasinoWagers
+                .Where(pa => pa.Amount.)
+                .OrderBy(w => w.CreatedDateTime)
+                .Take(count)
+                .ToList();
 
-            return TypedResults.Ok(new PaginatedItems<PlayerAccount>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0, data: wagersOnPage)); // Placeholder response
+            return TypedResults.Ok(PaginatedItems<PlayerAccountDto>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0, data: topSpenders)); // Placeholder response
         }
     }
 }

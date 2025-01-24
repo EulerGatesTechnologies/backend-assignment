@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 
-namespace OT.Assessment.App.Models.Players.Dto
+namespace OT.Assessment.App.DomainModels.Players.Dtos
 {
-    public class PlayerMapProfile : Profile
+    public class PlayerAccountMapProfile : Profile
     {
-        public PlayerMapProfile()
+        public PlayerAccountMapProfile()
         {
-            CreateMap<UserDto, User>();
-            CreateMap<UserDto, User>()
+            CreateMap<PlayerAccountDto, PlayerAccount>();
+            CreateMap<PlayerAccountDto, PlayerAccount>()
                 .ForMember(x => x.Roles, opt => opt.Ignore())
                 .ForMember(x => x.CreationTime, opt => opt.Ignore());
 

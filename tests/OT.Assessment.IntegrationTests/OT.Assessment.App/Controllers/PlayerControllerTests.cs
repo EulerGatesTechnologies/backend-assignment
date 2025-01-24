@@ -5,6 +5,8 @@ using System.Text.Json;
 
 using Xunit;
 using OT.Assessment.App.Infrastructure;
+using OT.Assessment.Core.Entities;
+using OT.Assessment.App.Models.CasinoWagers.Dtos;
 
 namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
 {
@@ -43,7 +45,7 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
 
             Assert.NotEmpty(content);
 
-            var playerWagers = JsonSerializer.Deserialize<IEnumerable<CasinoWager>>(content);
+            var playerWagers = JsonSerializer.Deserialize<IEnumerable<global::OT.Assessment.App.Models.CasinoWagers.Dtos.PlayerCasinoWager>>(content);
 
             Assert.NotNull(playerWagers);
 

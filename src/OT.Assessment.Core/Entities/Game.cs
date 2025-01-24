@@ -1,4 +1,4 @@
-﻿namespace OT.Assessment.App.Infrastructure;
+﻿namespace OT.Assessment.Core.Entities;
 
 internal class Game
 {

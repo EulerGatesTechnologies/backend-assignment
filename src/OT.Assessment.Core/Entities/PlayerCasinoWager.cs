@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace OT.Assessment.App.Infrastructure;
+namespace OT.Assessment.Core.Entities;
 
-public class CasinoWager
+public class PlayerCasinoWager
 {
     [JsonPropertyName("wagerId")]
     public string WagerId { get; set; }
