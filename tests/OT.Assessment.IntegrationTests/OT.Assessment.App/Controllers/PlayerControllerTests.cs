@@ -53,24 +53,21 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
         }
 
         // TODO: Implement the below test case with GET method urls
-        //[Theory]
-        //[InlineData("/")]
-        //[InlineData("/Index")]
-        //[InlineData("/About")]
-        //[InlineData("/Privacy")]
-        //[InlineData("/Contact")]
-        //public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
-        //{
-        //    // Arrange
-        //    var client = _factory.CreateClient();
+        [Theory]        
+        [InlineData("http://localhost:5021/api/Player/aa6700eb-1a06-483e-9739-d293dc7a9383/casino")]
+        public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
+        {
+            // Arrange            
+            var client = _factory.CreateClient();
 
-        //    // Act
-        //    var response = await client.GetAsync(url);
 
-        //    // Assert
-        //    response.EnsureSuccessStatusCode(); // Status Code 200-299
-        //    Assert.Equal("text/html; charset=utf-8",
-        //        response.Content.Headers.ContentType.ToString());
-        //}
+            // Act
+            var response = await client.GetAsync(url);
+
+            // Assert
+            response.EnsureSuccessStatusCode(); // Status Code 200-299
+            Assert.Equal("application/json; charset=utf-8",
+                response.Content.Headers.ContentType.ToString());
+        }
     }
 }
