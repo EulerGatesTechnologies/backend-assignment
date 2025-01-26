@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.Extensions.Options;
 using OT.Assessment.App.Controllers;
 using OT.Assessment.App.Model;
 
@@ -15,7 +16,7 @@ namespace OT.Assessment.UnitTests.OT.Assessment.App.Controllers
             // Arrange
             var playerId = Guid.NewGuid();
             var paginationRequest = new PaginationRequest();
-            IPlayerAppService playerAppService = new(PlayerServices playerService);
+            PlayerAppService playerAppService = new(new Options<);
 
             // Act
             var expectedOkResult = await playerAppService.;

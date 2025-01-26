@@ -6,15 +6,12 @@ using OT.Assessment.Consumer.Extensions;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-// Reference below package found in ASPIRE's ServiceDefaults projects in the current workspac/solution.
-builder.AddServiceDefaults();
-
 // Passing default connection name...
 builder.AddRabbitMQClient("messaging");
 
 //builder.AddRabbitMqEventBus("EventBus");
 
-builder.Services.AddHostedService<PlayerWagersProcessingJob>();
+builder.Services.AddHostedService<PlayerCasionWagersEventsProcessingJob>();
 
 //builder.Services.AddSingleton<IEventBus, RabbitMQEventBus>();
 // Start consuming messages as soon as the application starts

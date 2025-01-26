@@ -2,7 +2,9 @@
 	@people BasicUDT readonly
 AS
 BEGIN
-	INSERT INTO dbo.Person(FirstName, LastName)
-	SELECT [FirstName], [LastName]
-	FROM @people;
+	INSERT INTO dbo.PlayerAccount(AccountId, Username)
+	SELECT [AccountId], [Username]
+	FROM @people
+
+
 END

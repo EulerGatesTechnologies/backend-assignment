@@ -7,11 +7,9 @@ namespace OT.Assessment.Core
     {
         public const string PlayerEvents = "PlayerEvents";
 
-        public const string ConnectionStringName = "OT_Assessment_DB";
-
-        public static string GetConnectionString(string name = ConnectionStringName)
+        public static string GetConnectionString(string dbName = "OT_Assessment_DB")
         {
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+            return ConfigurationManager.ConnectionStrings[dbName].ConnectionString;
         }
 
     }

@@ -1,6 +1,4 @@
 using System.Text;
-using Microsoft.Extensions.Configuration;
-using OT.Assessment.Common;
 using OT.Assessment.Core;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -10,33 +8,44 @@ namespace OT.Assessment.Consumer
     /// <summary>
     /// This service will consume messages published to the aforementioned queue and store consumed messages in a database:
     /// </summary>
-    public class PlayerWagersProcessingJob : BackgroundService
+    public class PlayerCasionWagersEventsProcessingJob : BackgroundService
     {
-        private readonly ILogger<PlayerWagersProcessingJob> _logger;
-        private readonly IConfiguration _config;
+        private readonly ILogger<PlayerCasionWagersEventsProcessingJob> _logger;
+        
         private readonly IServiceProvider _serviceProvider;
-        private IConnection _messageConnection;
+        private IConnectionFactory _connectionFactory;
         private IModel _messageChannel;
 
-        public PlayerWagersProcessingJob(ILogger<PlayerWagersProcessingJob> logger, IConfiguration config, IServiceProvider serviceProvider, IConnection messageConnection)
+        public PlayerCasionWagersEventsProcessingJob(ILogger<PlayerCasionWagersEventsProcessingJob> logger, IServiceProvider serviceProvider)
         {
             _logger = logger;
-            _config = config;
+           
             _serviceProvider = serviceProvider;
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            if (stoppingToken.IsCancellationRequested)
+            {
+                _logger.LogInformation("Worker stopped at: {time}", DateTimeOffset.Now);
+                return Task.FromCanceled(stoppingToken); 
+            }
+
+            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
             string queueName  = AppConsts.PlayerEvents;
             
-            _messageConnection = _serviceProvider.GetService<IConnection>();
+            _connectionFactory = _serviceProvider.GetRequiredService<IConnectionFactory>();
 
-            _messageChannel = _messageConnection!.CreateModel();
+            _messageChannel = _connectionFactory.CreateConnection().CreateModel();
+
             _messageChannel.QueueDeclare(queue: queueName,
                 durable: false,
                 exclusive: false,
                 autoDelete: false,
                 arguments: null);
+
+            _logger.LogInformation($"[*] Waiting for messages from queue channel named : {queueName}");
 
             var consumer = new EventingBasicConsumer(_messageChannel);
             consumer.Received += ProcessMessageAsync;
@@ -52,17 +61,16 @@ namespace OT.Assessment.Consumer
         {
             await base.StopAsync(cancellationToken);
 
+
             _messageChannel?.Dispose();
         }
 
-        private void ProcessMessageAsync(object sender, BasicDeliverEventArgs args)
+        public void ProcessMessageAsync (object sender, BasicDeliverEventArgs args)
         {
 
             string messagetext = Encoding.UTF8.GetString(args.Body.ToArray());
 
-            _logger.LogInformation("All wagers retrieved from the player at {now}. Message Text: {text}", DateTime.Now, messagetext);
-
-            var message = args.Body;
+            _logger.LogInformation("All wagers retrieved from the player at {now}. Message Text: {text}", DateTime.UtcNow, messagetext);            
         }
     }
 }

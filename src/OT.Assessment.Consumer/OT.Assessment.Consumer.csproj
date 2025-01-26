@@ -10,8 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OT.Assessment.Core\OT.Assessment.Core.csproj" />
-    <ProjectReference Include="..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
-  </ItemGroup>
+    </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
