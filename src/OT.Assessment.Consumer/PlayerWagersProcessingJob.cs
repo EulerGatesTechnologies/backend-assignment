@@ -1,5 +1,5 @@
 using System.Text;
-using OT.Assessment.Core;
+
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -8,15 +8,15 @@ namespace OT.Assessment.Consumer
     /// <summary>
     /// This service will consume messages published to the aforementioned queue and store consumed messages in a database:
     /// </summary>
-    public class PlayerCasionWagersEventsProcessingJob : BackgroundService
+    public class PlayerCasinoWagersEventsProcessingJob : BackgroundService
     {
-        private readonly ILogger<PlayerCasionWagersEventsProcessingJob> _logger;
+        private readonly ILogger<PlayerCasinoWagersEventsProcessingJob> _logger;
         
         private readonly IServiceProvider _serviceProvider;
         private IConnectionFactory _connectionFactory;
         private IModel _messageChannel;
 
-        public PlayerCasionWagersEventsProcessingJob(ILogger<PlayerCasionWagersEventsProcessingJob> logger, IServiceProvider serviceProvider)
+        public PlayerCasinoWagersEventsProcessingJob(ILogger<PlayerCasinoWagersEventsProcessingJob> logger, IServiceProvider serviceProvider)
         {
             _logger = logger;
            
@@ -28,12 +28,13 @@ namespace OT.Assessment.Consumer
             if (stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker stopped at: {time}", DateTimeOffset.Now);
+
                 return Task.FromCanceled(stoppingToken); 
             }
 
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-            string queueName  = AppConsts.PlayerEvents;
+            string queueName  = "PlayerEvents";
             
             _connectionFactory = _serviceProvider.GetRequiredService<IConnectionFactory>();
 
@@ -48,6 +49,7 @@ namespace OT.Assessment.Consumer
             _logger.LogInformation($"[*] Waiting for messages from queue channel named : {queueName}");
 
             var consumer = new EventingBasicConsumer(_messageChannel);
+
             consumer.Received += ProcessMessageAsync;
 
             _messageChannel.BasicConsume(queue: queueName,
@@ -59,8 +61,8 @@ namespace OT.Assessment.Consumer
 
         public override async Task StopAsync(CancellationToken cancellationToken)
         {
-            await base.StopAsync(cancellationToken);
-
+            await base.StopAsync(cancellationToken);         
+            
 
             _messageChannel?.Dispose();
         }

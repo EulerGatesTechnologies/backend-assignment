@@ -1,30 +1,20 @@
-﻿
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using OT.Assessment.Consumer;
-using OT.Assessment.Consumer.Extensions;
+﻿using OT.Assessment.Consumer;
+
 
 var builder = Host.CreateApplicationBuilder(args);
 
-// Passing default connection name...
+builder.AddServiceDefaults();
+
 builder.AddRabbitMQClient("messaging");
 
-//builder.AddRabbitMqEventBus("EventBus");
-
-builder.Services.AddHostedService<PlayerCasionWagersEventsProcessingJob>();
-
-//builder.Services.AddSingleton<IEventBus, RabbitMQEventBus>();
-// Start consuming messages as soon as the application starts
-//builder.Services.AddSingleton<IHostedService>(sp => (RabbitMQEventBus)sp.GetRequiredService<IEventBus>());
-
-//return new EventBusBuilder(builder.Services);
-
+builder.Services.AddHostedService<PlayerCasinoWagersEventsProcessingJob>();
+    
 var host = builder.Build();
 
 var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
-logger.LogInformation("Application started {time:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+logger.LogInformation("Consumer started at: {time:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
 
 await host.RunAsync();
 
-logger.LogInformation("Application ended {time:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+logger.LogInformation("Consumer ended at: {time:yyyy-MM-dd HH:mm:ss}", DateTime.Now);

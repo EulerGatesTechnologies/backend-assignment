@@ -5,15 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Aspire.RabbitMQ.Client" Version="9.0.0" />
+  <ItemGroup>    
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OT.Assessment.Core\OT.Assessment.Core.csproj" />
-    </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup> 
+  <ItemGroup>
+    <ProjectReference Include="..\OT.Assessment.ServiceDefaults\OT.Assessment.ServiceDefaults.csproj" />
   </ItemGroup>
 </Project>
