@@ -1,4 +1,5 @@
 ﻿using OT.Assessment.Consumer;
+using RabbitMQ.Client;
 
 
 var builder = Host.CreateApplicationBuilder(args);
@@ -8,8 +9,11 @@ builder.AddServiceDefaults();
 builder.AddRabbitMQClient("messaging");
 
 builder.Services.AddHostedService<PlayerCasinoWagersEventsProcessingJob>();
-    
+
+
 var host = builder.Build();
+
+var connectionFactory = host.Services.GetService<IConnection>();
 
 var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
