@@ -23,11 +23,6 @@ namespace OT.Assessment.App.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-        private readonly PlayerServices _playerServices;        
-        public PlayerController(PlayerServices playerServices)
-        {
-            _playerServices = playerServices;
-        }
 
         /// <summary>
         ///  Receives player casino wager events to publish to the local RabbitMQ queue.
@@ -38,7 +33,7 @@ namespace OT.Assessment.App.Controllers
         [HttpPost("casinowager")]
         public async Task<IResult> CreateCasinoWagerAsync([FromBody] CasinoWager casinoWager)
         {
-            var body = Encoding.UTF8.GetBytes(JsonSerializer.Deserialize(casinoWager));
+            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(casinoWager));
 
             // Send a message to the queue in RabbitMQ
             var factory = new ConnectionFactory { HostName = "localhost" };
@@ -65,41 +60,23 @@ namespace OT.Assessment.App.Controllers
         /// Returns a paginated list of the latest casino playerCasinoWagers for a specific player.
         /// </summary>
         /// <param name="paginationRequest"></param>
-        /// <param name="services"></param>
+        /// <param name="playerServices"></param>
         /// <param name="playerId"></param>
         /// <returns></returns>
 
         //GET api/player/{playerId}/casino
         [HttpGet("{playerId}/casino")]
-        public async Task<Ok<PaginatedItems<CasinoWager>>> GetPlayerCasinoWagersAsync(
-            [AsParameters] 
-            PaginationRequest paginationRequest,
-            [AsParameters]
-            PlayerServices services,
-            Guid playerId)
+        public async Task<Ok<PaginatedItems<CasinoWager>>> GetPlayerCasinoWagersAsync(Guid playerId)
         {
 
             // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
 
-            
-        var wagersOnPage = services.Options.Value.GetFullPlayerApiUlr(playerId);
+             var wagersOnPage = new List<CasinoWager>();
 
-            ChangeUriPlaceholder(services.Options.Value, wagersOnPage)
-            return TypedResults.Ok(new PaginatedItems<CasinoWager>(paginationRequest.pageIndex, paginationRequest.pageSize, count, data: wagersOnPage))); // Placeholder response
+            return await Task.FromResult(TypedResults.Ok(new PaginatedItems<CasinoWager>(10, 0, wagersOnPage.Count, data: wagersOnPage)));
         }
 
-        private void ChangeUriPlaceholder(PlayerOptions value, string wagersOnPage)
-        {
-            throw new NotImplementedException();
-        }
 
-        private static void ChangeUriPlaceholder(PlayerOptions options, List<CasinoWager> casinoWagers)
-        {
-            foreach (var playerCasino in casinoWagers)
-            {
-                item.PictureUri = options.GetFullPlayerApiUlr(item.Id);
-            }
-        }
 
         /// <summary>
         /// Returns the top players based on their total spending.

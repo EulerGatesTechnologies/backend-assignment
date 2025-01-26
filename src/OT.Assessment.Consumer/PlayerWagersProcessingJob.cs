@@ -32,7 +32,7 @@ namespace OT.Assessment.Consumer
                 return Task.FromCanceled(stoppingToken); 
             }
 
-            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+            _logger.LogInformation("Worker running at: {time}", DateTime.UtcNow);
 
             string queueName  = "PlayerEvents";
             

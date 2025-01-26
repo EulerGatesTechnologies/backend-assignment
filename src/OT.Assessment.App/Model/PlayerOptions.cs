@@ -11,27 +11,15 @@ namespace OT.Assessment.App
         public const string ApiUrlBase = "/api/player/";
 
         public const string ApiVersion = "api-vesrion=1.0"; // Set by hosting environment
-        private string apiUrlCasinoPlayersFormat = "{playerId}/casino";
 
-        public string GetApiUrlCasinoPlayersFormat()
-        {
-            return apiUrlCasinoPlayersFormat;
-        }
+        public string ApiUrlHostAddress { get; set; } // Set by hosting environment
 
-        public void SetApiUrlCasinoPlayersFormat(string value)
-        {
-            apiUrlCasinoPlayersFormat = value;
-        }
-
-        public string? ApiUrlBaseAddress { get; set; } // Set by hosting environment
         public const string ApiUrlCasinoPlayersFormat = "{playerId}/casino";
 
         public string GetFullPlayerApiUlr(string playerId)
         {
             // PERF: Not ideal
-            return @$"{ApiUrlBaseAddress}{ApiUrlBase}{ApiUrlCasinoPlayersFormat()}}{}";
-        }
-
-       
+            return @$"{ApiUrlHostAddress}{ApiUrlBase}{ApiUrlCasinoPlayersFormat}";
+        }       
     }
 }

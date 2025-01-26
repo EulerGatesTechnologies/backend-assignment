@@ -1,9 +1,12 @@
+using OT.Assessment.App.Extensions;
+using static OT.Assessment.App.Apis.PlayersApi;
 using System.Reflection;
 
 var webApplicationBuilder = WebApplication.CreateBuilder(args);
 
 webApplicationBuilder.AddServiceDefaults();
 
+webApplicationBuilder.AddApplicationServices();
 
 webApplicationBuilder.Services.AddControllers();
 
@@ -17,6 +20,8 @@ webApplicationBuilder.Services.AddSwaggerGen(options =>
 });
 
 var webApplication = webApplicationBuilder.Build();
+
+webApplication.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (webApplication.Environment.IsDevelopment())
@@ -33,6 +38,8 @@ if (webApplication.Environment.IsDevelopment())
 webApplication.UseHttpsRedirection();
 
 webApplication.UseAuthorization();
+
+//webApplication.MapPlayerApiV1();
 
 webApplication.MapControllers();
 

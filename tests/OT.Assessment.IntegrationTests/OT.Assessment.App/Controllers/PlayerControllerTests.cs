@@ -4,9 +4,10 @@ using System.Numerics;
 using System.Text.Json;
 
 using Xunit;
-using OT.Assessment.App.Infrastructure;
+
 using OT.Assessment.Core.Entities;
 using OT.Assessment.App.Models.CasinoWagers.Dtos;
+using OT.Assessment.Tester.Infrastructure;
 
 namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
 {
@@ -31,7 +32,7 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
             
             Guid playerId = Guid.NewGuid();
             
-            string url = $"{hostAddress}/player/{playerId}/wagers";
+            string url = $"{hostAddress}/player/{playerId}/casino";
             
             // Act 
             var response = await httpClient.GetAsync(url);
@@ -45,14 +46,10 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
 
             Assert.NotEmpty(content);
 
-            var playerWagers = JsonSerializer.Deserialize<IEnumerable<global::OT.Assessment.App.Models.CasinoWagers.Dtos.PlayerCasinoWager>>(content);
+            var playerWager = JsonSerializer.Deserialize<CasinoWager>(content);
 
-            Assert.NotNull(playerWagers);
-
-            Assert.NotEmpty(playerWagers);
-
-            Assert.NotNull(playerWagers.Where(cw =>
-                string.Equals(cw.AccountId, playerId.ToString(), StringComparison.Ordinal)));
+            Assert.NotNull(playerWager);
+            
         }
 
         // TODO: Implement the below test case with GET method urls

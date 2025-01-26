@@ -13,7 +13,7 @@ builder.Services.AddHostedService<PlayerCasinoWagersEventsProcessingJob>();
 
 var host = builder.Build();
 
-var connectionFactory = host.Services.GetService<IConnection>();
+var connectionFactory = host.Services.GetService<IConnectionFactory>();
 
 var logger = host.Services.GetRequiredService<ILogger<Program>>();
 

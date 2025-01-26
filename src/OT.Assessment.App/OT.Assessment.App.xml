@@ -4,28 +4,19 @@
         <name>OT.Assessment.App</name>
     </assembly>
     <members>
-        <member name="M:OT.Assessment.App.Controllers.PlayerController.PostPlayerWagerAsync(OT.Assessment.App.Infrastructure.CasinoWager)">
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.CreateCasinoWagerAsync(OT.Assessment.Tester.Infrastructure.CasinoWager)">
             <summary>
              Receives player casino wager events to publish to the local RabbitMQ queue.
              </summary>
-            <param name="casinoWager"></param>
-            <param name="services"></param>
-            <param name="connection"></param>
+            <param name="casinoWager"></param>      
         </member>
-        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetWagersByPlayerIdAsync(OT.Assessment.App.Model.PaginationRequest, OT.Assessment.App.Model.PlayerServices,System.Guid)">
+        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetPlayerCasinoWagersAsync(System.Guid)">
             <summary>
-            Returns a paginated list of the latest casino wagers for a specific player.
+            Returns a paginated list of the latest casino playerCasinoWagers for a specific player.
             </summary>
             <param name="paginationRequest"></param>
-            <param name="services"></param>
+            <param name="playerServices"></param>
             <param name="playerId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OT.Assessment.App.Controllers.PlayerController.GetTopSpendersAsync(OT.Assessment.App.Model.PaginationRequest,OT.Assessment.App.Model.PlayerServices,System.Int32)">
-            <summary>
-            Returns the top players based on their total spending.
-            </summary>
-            <param name="count"></param>
             <returns></returns>
         </member>
     </members>
