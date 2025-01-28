@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
+using OT.Assessment.App.Infrastructure;
 using OT.Assessment.App.Model;
-using OT.Assessment.Tester.Infrastructure;
+using OT.Assessment.Core.Entities;
 
 namespace OT.Assessment.App.Apis
 {
@@ -16,11 +17,11 @@ namespace OT.Assessment.App.Apis
             return app;
         }
 
-        public static async Task<Results<Ok<IEnumerable<CasinoWager>>, NotFound>> GetPlayerCasinoWagersAsync(Guid playerId, [AsParameters] PlayerServices services)
+        public static async Task<Results<Ok<IEnumerable<PlayerCasinoWager>>, NotFound>> GetPlayerCasinoWagersAsync(Guid playerId, [AsParameters] PlayerServices services)
         {
             try
             {
-                var casinoWagers = await services.Queries.GetPlayerCasinoWagersAsync(playerId.ToString());
+                var casinoWagers = await services.PlayerQueries.GetPlayerCasinoWagersAsync(playerId.ToString());
 
                 return TypedResults.Ok(casinoWagers);
             }

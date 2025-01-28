@@ -70,5 +70,6 @@
     <Build Include="dbo\Stored Procedures\sp_GetWagersByPlayerId.sql" />
     <Build Include="dbo\Stored Procedures\sp_GetPlayerAccounts.sql" />
     <Build Include="dbo\Stored Procedures\sp_CreatePlayerCasinoWager.sql" />
+    <Build Include="dbo\Types\BasicUDT.sql" />
   </ItemGroup>
 </Project>

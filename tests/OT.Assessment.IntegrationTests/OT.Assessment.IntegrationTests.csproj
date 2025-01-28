@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\OT.Assessment.AppHost\OT.Assessment.AppHost.csproj" />
     <ProjectReference Include="..\..\src\OT.Assessment.App\OT.Assessment.App.csproj" />
   </ItemGroup>
 

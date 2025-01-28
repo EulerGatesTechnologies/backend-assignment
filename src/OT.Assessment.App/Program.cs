@@ -1,12 +1,15 @@
 using OT.Assessment.App.Extensions;
-using static OT.Assessment.App.Apis.PlayersApi;
 using System.Reflection;
 
 var webApplicationBuilder = WebApplication.CreateBuilder(args);
 
+webApplicationBuilder.AddRabbitMQClient("messaging");
+
 webApplicationBuilder.AddServiceDefaults();
 
 webApplicationBuilder.AddApplicationServices();
+
+webApplicationBuilder.Services.AddProblemDetails();
 
 webApplicationBuilder.Services.AddControllers();
 

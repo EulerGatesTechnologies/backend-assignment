@@ -1,13 +1,6 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc.Testing;
-using System.Numerics;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 using System.Text.Json;
-
-using Xunit;
-
-using OT.Assessment.Core.Entities;
-using OT.Assessment.App.Models.CasinoWagers.Dtos;
-using OT.Assessment.Tester.Infrastructure;
+using OT.Assessment.App.Infrastructure;
 
 namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
 {
@@ -22,26 +15,23 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
             _factory = factory;
         }
 
-        [Fact]
-        public async Task CanReadPlayers()
+        // TODO: Implement the below test case with GET method urls
+        [Theory]        
+        [InlineData("http://localhost:5021/api/Player/aa6700eb-1a06-483e-9739-d293dc7a9383/casino")]
+        [InlineData("http://localhost:5021/api/player/topSpenders?count=10")]
+        public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
         {
-            // Arrange
+            // Arrange            
             var httpClient = _factory.CreateClient();
 
-            const string hostAddress = $"http://localhost:5021/api";
-            
-            Guid playerId = Guid.NewGuid();
-            
-            string url = $"{hostAddress}/player/{playerId}/casino";
-            
-            // Act 
+            // Act
             var response = await httpClient.GetAsync(url);
-            
+
             // Assert
             Assert.NotNull(response);
-            
+
             Assert.True(response.StatusCode == System.Net.HttpStatusCode.OK);
-            
+
             var content = await response.Content.ReadAsStringAsync();
 
             Assert.NotEmpty(content);
@@ -49,22 +39,7 @@ namespace OT.Assessment.IntegrationTests.OT.Assessment.App.Controllers
             var playerWager = JsonSerializer.Deserialize<CasinoWager>(content);
 
             Assert.NotNull(playerWager);
-            
-        }
 
-        // TODO: Implement the below test case with GET method urls
-        [Theory]        
-        [InlineData("http://localhost:5021/api/Player/aa6700eb-1a06-483e-9739-d293dc7a9383/casino")]
-        public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
-        {
-            // Arrange            
-            var client = _factory.CreateClient();
-
-
-            // Act
-            var response = await client.GetAsync(url);
-
-            // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
             Assert.Equal("application/json; charset=utf-8",
                 response.Content.Headers.ContentType.ToString());

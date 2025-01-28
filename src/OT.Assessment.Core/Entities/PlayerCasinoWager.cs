@@ -51,4 +51,5 @@ public class PlayerCasinoWager
 
     [JsonPropertyName("Duration")]
     public long Duration { get; set; }
+    public int PlayerId { get; set; }
 }

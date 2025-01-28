@@ -1,12 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using OT.Assessment.App.Infrastructure;
+
 var bg = new BogusGenerator();
+
 List<CasinoWager> fakePlayerCasinoWagers = bg.Generate();
-var scenario = Scenario.Create("hello_world_scenario", async context =>
+
+var scenario = Scenario.Create("POST_PlayerCasinoWagers_Events_Scenario", async context =>
     {
-        var body = JsonSerializer.Serialize(fakePlayerCasinoWagers[(int)context.InvocationNumber]);
+        string body = JsonSerializer.Serialize(fakePlayerCasinoWagers[(int)context.InvocationNumber]);
+
         using var httpClient = new HttpClient();
+
         var request =
            Http.CreateRequest("POST", "http://localhost:5021/api/Player/casinowager")
                 .WithHeader("Accept", "application/json")

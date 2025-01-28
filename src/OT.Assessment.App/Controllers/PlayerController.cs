@@ -4,18 +4,19 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using OT.Assessment.App.Model;
 using OT.Assessment.App.Models;
 using OT.Assessment.Core;
 
 using RabbitMQ.Client;
 
-using static OT.Assessment.Core.AppConsts;
-
 using Dapper;
-using OT.Assessment.App.DomainModels.Players.Dtos;
+
 using OT.Assessment.App.Models.CasinoWagers.Dtos;
-using OT.Assessment.Tester.Infrastructure;
+using OT.Assessment.App.Infrastructure;
+using OT.Assessment.App.Extensions;
+using OT.Assessment.App.Application;
+using OT.Assessment.App.Application.Queries;
+using OT.Assessment.App.Model;
 
 namespace OT.Assessment.App.Controllers
 {
@@ -66,46 +67,44 @@ namespace OT.Assessment.App.Controllers
 
         //GET api/player/{playerId}/casino
         [HttpGet("{playerId}/casino")]
-        public async Task<Ok<PaginatedItems<CasinoWager>>> GetPlayerCasinoWagersAsync(Guid playerId)
-        {
-
+        public async Task<Results<Ok<PaginatedItems<CasinoWager>>, BadRequest<string>>> GetAllPlayerCasinoWagersAsync(Guid playerId)
+        {    
             // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
-
-             var wagersOnPage = new List<CasinoWager>();
-
-            return await Task.FromResult(TypedResults.Ok(new PaginatedItems<CasinoWager>(10, 0, wagersOnPage.Count, data: wagersOnPage)));
+                     
+           return TypedResults.Ok(new PaginatedItems<CasinoWager>(10, 0, 0, data: []));
         }
-
-
-
         /// <summary>
         /// Returns the top players based on their total spending.
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
+        /// 
         //GET api/player/topSpenders?count=10
-        // [HttpGet("topSpenders")]
-        // public async Task<Ok<PaginatedItems<PlayerAccountDto>>> GetTopSpendersAsync(P
-        // [AsParameter] PlayerServices services, 
-        //     int count = 10)
-        // {   
-        //     var playerParams = new DynamicParameters();
-        //     playerParams.Add("@PlayerId", searchTerm); 
+         [HttpGet("topSpenders")]
+         public async Task<Ok<List<PlayerCasinoWagerDto>>> GetTopSpendersAsync(int count = 10)
+        {
+            string sql = @"sp_GetPlayerAccounts";
 
-        //     string sql = @"sp_GetPlayerAccounts";
+            try
+            {
+                using IDbConnection connection = new SqlConnection("SERVER=.; DATABASE=OT_Assessment_DB; Integrated Security=SSPI;");
 
-        //     using IDbConnection connection = new SqlConnection(GetConnectionString());
+                var playerCasinoWagers = await connection.QueryAsync<CasinoWager>(sql);
 
-        //     var playerCasinoWagers = await connection.QueryAsync<PlayerCasinoWagerDto>(sql, playerParams);
+                // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
+                var topSpenders = playerCasinoWagers
+                    .MapToPlayerCasinoWagerDtos()
+                    .Take(count)
+                    .ToList();
 
-        //     // TODO: Check if time allows for cached data before making DB calls, cached output would have to be implemented prior.
-        //     var topSpenders = playerCasinoWagers
-        //         .Where(pa => pa.Amount.)
-        //         .OrderBy(w => w.CreatedDateTime)
-        //         .Take(count)
-        //         .ToList();
+                return TypedResults.Ok(topSpenders); // Placeholder response
+            }
+            catch (Exception ex)
+            {
 
-        //     return TypedResults.Ok(new PaginatedItems<PlayerAccountDto>(pageIndex: paginationRequest.PageIndex, pageSize: paginationRequest.PageSize, count: 0, data: topSpenders)); // Placeholder response
-        // }
+                throw new DomainException(ex.Message, ex.InnerException);
+            }                   
+           
+        }
     }
 }

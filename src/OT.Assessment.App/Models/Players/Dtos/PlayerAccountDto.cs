@@ -1,8 +1,13 @@
-﻿namespace OT.Assessment.App.DomainModels.Players.Dtos
+﻿using OT.Assessment.App.Models.CasinoWagers.Dtos;
+using OT.Assessment.Core.Entities;
+
+namespace OT.Assessment.App.Models.Players.Dtos
 {
-    public class PlayerAccountDto
+    public class PlayerAccountDto(string accountId, string username)
     {
-        public Guid AccountId { get; set; }
-        public string Username { get; set; }
+        public string AccountId { get;  } = accountId;
+        public string Username { get;  } = username;
+
+        public ICollection<double> Amounts { get; set; }
     }
 }

@@ -1,24 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OT.Assessment.App.Infrastructure;
 using OT.Assessment.Core.Entities;
-using OT.Assessment.Tester.Infrastructure;
 
 namespace OT.Assessment.App.Application.Queries
 {
     public interface IPlayerQueries
     {
-        Task<IEnumerable<CasinoWager>> GetPlayerCasinoWagersAsync(string playerId);
+        Task<IEnumerable<PlayerCasinoWager>> GetPlayerCasinoWagersAsync(string playerId);
     }
 
     public class PlayerQueries : IPlayerQueries
     {
+        private OtAssessmentDbContext _dbContext;
 
-        public async Task<IEnumerable<CasinoWager>> GetPlayerCasinoWagersAsync(string playerId)
+        public PlayerQueries()
         {
+        }
 
-            var casinoWagers = new List<CasinoWager>().AsQueryable();
+        public PlayerQueries(OtAssessmentDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
-            return await casinoWagers
-                .ToListAsync();               
+        public async Task<IEnumerable<PlayerCasinoWager>> GetPlayerCasinoWagersAsync(string playerId)
+        {
+            return await _dbContext.PlayerCasinoWagers.Where(pcw => pcw.PlayerId.ToString().Equals(playerId)).ToListAsync();
+
         }
     }
 }

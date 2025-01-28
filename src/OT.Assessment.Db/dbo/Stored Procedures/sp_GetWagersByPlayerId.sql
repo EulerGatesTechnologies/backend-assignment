@@ -6,7 +6,7 @@ BEGIN
 
 	SELECT pcw.WagerId, pcw.Game, pcw.[Provider], pcw.Amount, pcw.CreatedDateTime
 		FROM [dbo].[PlayerAccount] pa	
-		 LEFT JOIN [dbo].[PlayerCasinoWager] pcw
+		  JOIN [dbo].[PlayerCasinoWager] pcw
 		ON pa.Id = pcw.PlayerId
 		WHERE pa.AccountId = @PlayerId;
 END

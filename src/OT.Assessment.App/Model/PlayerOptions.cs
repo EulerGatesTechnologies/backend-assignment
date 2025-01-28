@@ -1,18 +1,12 @@
-﻿using System.Globalization;
-
-using System.Data;
-using Dapper;
-using OT.Assessment.Core;
-
-namespace OT.Assessment.App
+﻿namespace OT.Assessment.App
 {
     public class PlayerOptions
     {
         public const string ApiUrlBase = "/api/player/";
 
-        public const string ApiVersion = "api-vesrion=1.0"; // Set by hosting environment
+        public const string ApiVersion = "api-version=1.0"; // Set by hosting environment
 
-        public string ApiUrlHostAddress { get; set; } // Set by hosting environment
+        public string ApiUrlHostAddress { get; set; } = "http://localhost:5021/api/";
 
         public const string ApiUrlCasinoPlayersFormat = "{playerId}/casino";
 
