@@ -59,9 +59,7 @@ namespace OT.Assessment.App.Controllers
 
         /// <summary>
         /// Returns a paginated list of the latest casino playerCasinoWagers for a specific player.
-        /// </summary>
-        /// <param name="paginationRequest"></param>
-        /// <param name="playerServices"></param>
+        /// </summary>        
         /// <param name="playerId"></param>
         /// <returns></returns>
 
