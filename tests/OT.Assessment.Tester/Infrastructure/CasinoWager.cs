@@ -2,7 +2,7 @@
 
 namespace OT.Assessment.Tester.Infrastructure;
 
-internal class CasinoWager
+public class CasinoWager
 {
     [JsonPropertyName("wagerId")]
     public string WagerId { get; set; }

@@ -8,7 +8,7 @@
             <summary>
              Receives player casino wager events to publish to the local RabbitMQ queue.
              </summary>
-            <param name="casinoWager"></param>      
+            <param name="casinoWager"></param>
         </member>
         <member name="M:OT.Assessment.App.Controllers.PlayerController.GetAllPlayerCasinoWagersAsync(System.Guid)">
             <summary>

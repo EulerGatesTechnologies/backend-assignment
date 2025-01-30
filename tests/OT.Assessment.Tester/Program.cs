@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-using OT.Assessment.App.Infrastructure;
+using OT.Assessment.Tester.Infrastructure;
 
 var bg = new BogusGenerator();
 
 List<CasinoWager> fakePlayerCasinoWagers = bg.Generate();
 
-var scenario = Scenario.Create("POST_PlayerCasinoWagers_Events_Scenario", async context =>
+var scenario = Scenario.Create("PlayerCasinoWagers_Events_Scenario", async context =>
     {
         string body = JsonSerializer.Serialize(fakePlayerCasinoWagers[(int)context.InvocationNumber]);
 
@@ -21,6 +21,7 @@ var scenario = Scenario.Create("POST_PlayerCasinoWagers_Events_Scenario", async 
         var response = await Http.Send(httpClient, request);
 
         if (response.StatusCode == "OK") return Response.Ok();
+
         return Response.Fail(body, response.StatusCode, response.Message, response.SizeBytes);
     })
     .WithoutWarmUp()

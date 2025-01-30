@@ -28,19 +28,22 @@ namespace OT.Assessment.App.Controllers
         /// <summary>
         ///  Receives player casino wager events to publish to the local RabbitMQ queue.
         ///  </summary>
-        /// <param name="casinoWager"></param>      
+        /// <param name="casinoWager"></param>
+           
 
         //POST api/player/casinowager
         [HttpPost("casinowager")]
         public async Task<IResult> CreateCasinoWagerAsync([FromBody] CasinoWager casinoWager)
         {
-            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(casinoWager));
+            var casinoWagerAsJsonString = JsonSerializer.Serialize(casinoWager);
+
+            byte[] body = Encoding.UTF8.GetBytes(casinoWagerAsJsonString);
 
             // Send a message to the queue in RabbitMQ
             var factory = new ConnectionFactory { HostName = "localhost" };
 
             using IConnection connection = factory.CreateConnection();
-           
+
             using IModel channel = connection.CreateModel();
 
             channel.QueueDeclare(queue: AppConsts.PlayerEvents,

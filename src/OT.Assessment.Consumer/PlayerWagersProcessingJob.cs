@@ -13,10 +13,10 @@ namespace OT.Assessment.Consumer
         private readonly ILogger<PlayerCasinoWagersEventsProcessingJob> _logger;
         private readonly IConfiguration _config;
         private readonly IServiceProvider _serviceProvider;
-        private IConnection? _messageConnection;
-        private IModel? _messageChannel;
+        private IConnection _messageConnection;
+        private IModel _messageChannel;
 
-        public PlayerCasinoWagersEventsProcessingJob(ILogger<PlayerCasinoWagersEventsProcessingJob> logger, IConfiguration config, IServiceProvider serviceProvider, IConnection? messageConnection)
+        public PlayerCasinoWagersEventsProcessingJob(ILogger<PlayerCasinoWagersEventsProcessingJob> logger, IConfiguration config, IServiceProvider serviceProvider, IConnection messageConnection)
         {
             _logger = logger;
             _config = config;
@@ -38,7 +38,7 @@ namespace OT.Assessment.Consumer
 
             _messageConnection = _serviceProvider.GetService<IConnection>();
 
-            _messageChannel = _messageConnection!.CreateModel();
+            _messageChannel = _messageConnection.CreateModel();
 
             _messageChannel.QueueDeclare(queue: queueName,
                 durable: false,
