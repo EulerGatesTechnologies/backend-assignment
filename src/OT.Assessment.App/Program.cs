@@ -3,11 +3,12 @@ using System.Reflection;
 
 var webApplicationBuilder = WebApplication.CreateBuilder(args);
 
-webApplicationBuilder.AddRabbitMQClient("messaging");
-
 webApplicationBuilder.AddServiceDefaults();
 
 webApplicationBuilder.AddApplicationServices();
+
+// Add RabbitMQ client, connectonName should match the server name, here, 'messaging'.
+webApplicationBuilder.AddRabbitMQClient(connectionName: "messaging");
 
 webApplicationBuilder.Services.AddProblemDetails();
 

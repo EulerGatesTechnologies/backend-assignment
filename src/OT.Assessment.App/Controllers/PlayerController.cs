@@ -24,12 +24,16 @@ namespace OT.Assessment.App.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
+        private readonly IConnection _messageConnection;
 
+        public PlayerController(IConnection messageConnection)
+        {
+            _messageConnection = messageConnection;
+        }
         /// <summary>
         ///  Receives player casino wager events to publish to the local RabbitMQ queue.
         ///  </summary>
-        /// <param name="casinoWager"></param>
-           
+        /// <param name="casinoWager"></param>           
 
         //POST api/player/casinowager
         [HttpPost("casinowager")]
@@ -39,12 +43,7 @@ namespace OT.Assessment.App.Controllers
 
             byte[] body = Encoding.UTF8.GetBytes(casinoWagerAsJsonString);
 
-            // Send a message to the queue in RabbitMQ
-            var factory = new ConnectionFactory { HostName = "localhost" };
-
-            using IConnection connection = factory.CreateConnection();
-
-            using IModel channel = connection.CreateModel();
+            IModel channel = _messageConnection.CreateModel();
 
             channel.QueueDeclare(queue: AppConsts.PlayerEvents,
                 durable: false,
