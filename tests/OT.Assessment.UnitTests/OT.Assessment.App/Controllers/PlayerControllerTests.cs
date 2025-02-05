@@ -2,11 +2,13 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+
 using RabbitMQ.Client;
 using Xunit;
 using OT.Assessment.App.Controllers;
 using OT.Assessment.App.Models;
 using OT.Assessment.App.Models.CasinoWagers.Dtos;
+using OT.Assessment.App.Infrastructure;
 
 namespace OT.Assessment.Tests.Controllers
 {

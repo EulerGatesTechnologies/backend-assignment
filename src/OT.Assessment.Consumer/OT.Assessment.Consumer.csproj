@@ -6,7 +6,7 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
   <ItemGroup>    
-    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.2" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.Development.json">

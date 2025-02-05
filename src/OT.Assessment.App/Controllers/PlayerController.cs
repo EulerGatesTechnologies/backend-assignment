@@ -73,15 +73,17 @@ namespace OT.Assessment.App.Controllers
                      
            return TypedResults.Ok(new PaginatedItems<CasinoWager>(10, 0, 0, data: []));
         }
+
         /// <summary>
         /// Returns the top players based on their total spending.
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
         /// 
+
         //GET api/player/topSpenders?count=10
-         [HttpGet("topSpenders")]
-         public async Task<Ok<List<PlayerCasinoWagerDto>>> GetTopSpendersAsync(int count = 10)
+        [HttpGet("topSpenders")]
+        public async Task<Results<Ok<IEnumerable<PlayerCasinoWagerDto>>> GetTopSpendersAsync(int count = 10)
         {
             string sql = @"sp_GetPlayerAccounts";
 
